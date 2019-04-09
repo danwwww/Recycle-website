@@ -40,30 +40,12 @@ label{
 }
 /*-- banner-top --*/
 .w3layouts-banner-top{
-    background: url(../images/b1.jpg) no-repeat 0px 0px;
+    background: url(../images/recycling_home.jpg) no-repeat 0px 0px;
     background-size: cover;	
 	-webkit-background-size: cover;	
 	-moz-background-size: cover;
 	-o-background-size: cover;		
 	-moz-background-size: cover;
-	min-height:780px;
-}
-.w3layouts-banner-top1{
-	background: url(../images/b2.jpg) no-repeat 0px 0px;
-    background-size: cover;	
-	-webkit-background-size: cover;	
-	-moz-background-size: cover;
-	-o-background-size: cover;		
-	-moz-background-size: cover;
-	min-height:780px;
-}
-.w3layouts-banner-top2{
-	background: url(../images/b3.jpg) no-repeat 0px 0px;
-    background-size: cover;	
-	-webkit-background-size: cover;	
-	-moz-background-size: cover;
-	-o-background-size: cover;		
-	-moz-background-size: cover;	
 	min-height:780px;
 }
 
