@@ -1,0 +1,23 @@
+{
+  "name": "info30005-2019-rl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuangyuanw/info30005-2019-rl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuangyuanw/info30005-2019-rl/issues"
+  },
+  "homepage": "https://github.com/shuangyuanw/info30005-2019-rl#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
