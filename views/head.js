@@ -4,7 +4,7 @@ document.writeln("<head>");
 document.writeln("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
 document.writeln("    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />");
 document.writeln("    <meta name=\"keywords\" content=\"\" />");
-document.writeln("    <link rel=\"stylesheet\" href=\"../css/bootstrap.css\"> <!-- Bootstrap-Core-CSS -->");
+document.writeln("    <link rel=\"stylesheet\" href=\"../css/bootstrap.css\">");
 document.writeln("    <link rel=\"stylesheet\" href=\"../css/head_style.css\" type=\"text/css\" media=\"all\" />");
 document.writeln("    <link rel=\"stylesheet\" href=\"../css/font-awesome.css\">");
 document.writeln("    <link rel=\"stylesheet\" href=\"../css/lightbox.css\">");
