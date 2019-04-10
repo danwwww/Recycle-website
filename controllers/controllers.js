@@ -9,4 +9,16 @@ var findAllItems = function (req, res) {
     });
 };
 
+var findOneItem = function (req, res) {
+    var itemIndex = req.params.id;
+    Items.findById(itemIndex, function (err, item) {
+        if (!err) {
+            res.send(item);
+        } else {
+            res.sendStatus(404);
+        }
+    });
+};
+
 module.exports.findAllItem = findAllItems;
+module.exports.findOneItem = findOneItem;

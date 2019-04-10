@@ -53,10 +53,10 @@ document.writeln("                            <div class=\"collapse navbar-colla
 document.writeln("                                <nav class=\"menu menu--francisco\">");
 document.writeln("                                    <ul class=\"nav navbar-nav menu__list\">");
 document.writeln("                                        <li class=\"menu__item menu__item--current\"><a href=\"../views/home.html\" class=\"menu__link\"><span class=\"menu__helper\">Home</span></a></li>");
-document.writeln("                                        <li class=\"menu__item\"><a href=\"#directory\" class=\"menu__link scroll\"><span class=\"menu__helper\">Recycling Directory</span></a></li>");
-document.writeln("                                        <li class=\"menu__item\"><a href=\"#grade\" class=\"menu__link scroll\"><span class=\"menu__helper\">My Grade</span></a></li>");
-document.writeln("                                        <li class=\"menu__item\"><a href=\"#account\" class=\"menu__link scroll\"><span class=\"menu__helper\">My Account</span></a></li>");
-document.writeln("                                        <li class=\"menu__item\"><a href=\"#login\" class=\"menu__link scroll\"><span class=\"menu__helper\">Log in</span></a></li>");
+document.writeln("                                        <li class=\"menu__item\"><a href=\"directory.html\" class=\"menu__link scroll\"><span class=\"menu__helper\">Recycling Directory</span></a></li>");
+document.writeln("                                        <li class=\"menu__item\"><a href=\"grade.html\" class=\"menu__link scroll\"><span class=\"menu__helper\">My Grade</span></a></li>");
+document.writeln("                                        <li class=\"menu__item\"><a href=\"account.html\" class=\"menu__link scroll\"><span class=\"menu__helper\">My Account</span></a></li>");
+document.writeln("                                        <li class=\"menu__item\"><a href=\"login.html\" class=\"menu__link scroll\"><span class=\"menu__helper\">Log in</span></a></li>");
 document.writeln("                                    </ul>");
 document.writeln("                                </nav>");
 document.writeln("                                <div class=\"clearfix\"></div>");
