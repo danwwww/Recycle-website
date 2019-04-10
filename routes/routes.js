@@ -8,11 +8,18 @@ router.use(bodyParser.json());
 
 var controller = require('../controllers/controllers.js');
 
+//Create a new item
+router.post('/api', controller.creatItem);
+
 //Find all list items
 router.get('/api',controller.findAllItem);
+router.get('/login.html/api',controller.findAllItem);
 
 //find list item by id
 router.get('/api/id/:id',controller.findOneItem);
+
+//find list item by name
+router.get('/api/name/:name',controller.findByName);
 
 // define the home page route
 router.get('/', function(req, res) {

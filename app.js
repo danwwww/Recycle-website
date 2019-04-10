@@ -7,7 +7,7 @@ app.use('/css', express.static('css'));
 app.use('/images', express.static('images'));
 
 // Database setup
-//require('./models/database.js');
+//require('./models/db.js');
 
 // Routes setup
 var routes = require('./routes/routes.js');
