@@ -28,12 +28,12 @@ router.get('/', function(req, res) {
 
 // define the My Account page route
 router.get('/account', function(req, res) {
-    res.send(path.join(__dirname, '../views/account.html'));
+    res.sendFile(path.join(__dirname, '../views/account.html'));
 });
 
 // define the Recycling Directory page route
 router.get('/directory', function(req, res) {
-    res.send(path.join(__dirname, '../views/directory.html'));
+    res.sendFile(path.join(__dirname, '../views/directory.html'));
 })
 
 module.exports = router;
