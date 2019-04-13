@@ -2,15 +2,17 @@ var mongoose = require('mongoose');
 var Items = mongoose.model('items');
 var Users = mongoose.model('users');
 
-var creatItem = function (req, res) {
-    var item = new Items({
-        "name": req.body.name,
-        "description": req.body.description,
-        "photo": req.body.photo
+var creatUser = function (req, res) {
+    var user = new Users({
+        "name":req.body.name,
+        "firstname": req.body.firstname,
+        "lastname":req.body.lastname,
+        "email":req.body.email,
+        "passwordHash":req.body.passwordHash
     });
-    item.save(function (err, newItems) {
+    user.save(function (err, newUsers) {
         if (!err) {
-            res.send(newItems);
+            res.send(newUsers);
         } else {
             res.sendStatus(400);
         }
@@ -83,12 +85,21 @@ var findByUserName = function (req, res) {
     });
 };
 
-var
+var updateUsers = function(req,res){
+    Users.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, user) {
+        if (!err) {
+            res.send(user)
+        }else{
+            res.sendStatus(404)
+        }
+    });
+};
 
-module.exports.creatItem = creatItem;
+module.exports.creatUser = creatUser;
 module.exports.findAllItem = findAllItems;
 module.exports.findOneItem = findOneItem;
 module.exports.findByName = findByName;
 module.exports.findAllUser = findAllUsers;
 module.exports.findOneUser = findOneUser;
 module.exports.findByUserName = findByUserName;
+module.exports.updataUsers = updateUsers;

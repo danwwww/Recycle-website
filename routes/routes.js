@@ -4,8 +4,8 @@ const router = express.Router();
 
 var controller = require('../controllers/controllers.js');
 
-//Create a new item
-router.post('/api', controller.creatItem);
+//Create a new user
+router.post('/login.html/api', controller.creatUser);
 
 //Find all list items
 router.get('/directory.html/api',controller.findAllItem);
@@ -24,6 +24,9 @@ router.get('/users/id/:id',controller.findOneUser);
 
 //find user by name
 router.get('/users/name/:name',controller.findByUserName);
+
+//update a user's information
+router.put('/user/id/:id',controller.updataUsers);
 
 // define the home page route
 router.get('/', function(req, res) {
