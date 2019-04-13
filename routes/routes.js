@@ -12,8 +12,7 @@ var controller = require('../controllers/controllers.js');
 router.post('/api', controller.creatItem);
 
 //Find all list items
-router.get('/api',controller.findAllItem);
-router.get('/login.html/api',controller.findAllItem);
+router.get('/directory.html/api',controller.findAllItem);
 
 //find list item by id
 router.get('/api/id/:id',controller.findOneItem);
@@ -30,10 +29,5 @@ router.get('/', function(req, res) {
 router.get('/account', function(req, res) {
     res.sendFile(path.join(__dirname, '../views/account.html'));
 });
-
-// define the Recycling Directory page route
-router.get('/directory', function(req, res) {
-    res.sendFile(path.join(__dirname, '../views/directory.html'));
-})
 
 module.exports = router;

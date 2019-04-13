@@ -16,10 +16,10 @@ var creatItem = function (req, res) {
 };
 
 var findAllItems = function (req, res) {
-    Items.find({}, function (err, lists) {
+    Items.find({}, function (err, items) {
         if (!err) {
-            //console.log(lists);
-            res.send(lists);
+            //console.log(items);
+            res.send(items);
         } else {
             res.sendStatus(400);
         }
