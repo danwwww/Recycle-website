@@ -1,10 +1,11 @@
-//var mongoose = require('mongoose');
-//var Item = mongoose.model('items');
+var mongoose = require('mongoose');
+var Items = mongoose.model('items');
 
 var creatItem = function (req, res) {
     var item = new Items({
         "name": req.body.name,
         "description": req.body.description,
+        "photo": req.body.photo
     });
     item.save(function (err, newItems) {
         if (!err) {
