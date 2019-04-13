@@ -11,10 +11,19 @@ router.post('/api', controller.creatItem);
 router.get('/directory.html/api',controller.findAllItem);
 
 //find list item by id
-router.get('/api/id/:id',controller.findOneItem);
+router.get('/items/id/:id',controller.findOneItem);
 
 //find list item by name
-router.get('/api/name/:name',controller.findByName);
+router.get('/items/name/:name',controller.findByName);
+
+//find all users
+router.get('/users/api',controller.findAllUser);
+
+//find user by id
+router.get('/users/id/:id',controller.findOneUser);
+
+//find user by name
+router.get('/users/name/:name',controller.findByUserName);
 
 // define the home page route
 router.get('/', function(req, res) {
