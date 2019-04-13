@@ -36,7 +36,7 @@ document.writeln("        </div>");
 document.writeln("        <div class=\"header-bottom\">");
 document.writeln("            <div class=\"container\">");
 document.writeln("                <div class=\"col-md-3 logo-w3l\">");
-document.writeln("                    <h1><a class=\"navbar-brand\" href=\"../views/home.html\"><span>R</span>ecycling Life</a></h1>");
+document.writeln("                    <h1><a class=\"navbar-brand\" href=\"home.html\"><span>R</span>ecycling Life</a></h1>");
 document.writeln("                </div>");
 document.writeln("                <div class=\"col-md-9 navi-w3l\">");
 document.writeln("                    <nav class=\"navbar navbar-default\">");
