@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Items = mongoose.model('items');
 var Users = mongoose.model('users');
 
-var creatUser = function (req, res) {
+var createUser = function (req, res) {
     var user = new Users({
         "name":req.body.name,
         "firstname": req.body.firstname,
@@ -95,11 +95,12 @@ var updateUsers = function(req,res){
     });
 };
 
-module.exports.creatUser = creatUser;
-module.exports.findAllItem = findAllItems;
+module.exports.createUser = createUser;
+module.exports.findAllItems = findAllItems;
 module.exports.findOneItem = findOneItem;
 module.exports.findByName = findByName;
-module.exports.findAllUser = findAllUsers;
+module.exports.findAllUsers = findAllUsers;
 module.exports.findOneUser = findOneUser;
 module.exports.findByUserName = findByUserName;
-module.exports.updataUsers = updateUsers;
+module.exports.updateUsers = updateUsers;
+module.exports.createUser = createUser;

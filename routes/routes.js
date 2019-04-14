@@ -5,10 +5,10 @@ const router = express.Router();
 var controller = require('../controllers/controllers.js');
 
 //Create a new user
-router.post('/login.html/api', controller.creatUser);
+router.post('/login.html/api', controller.createUser);
 
 //Find all list items
-router.get('/directory.html/api',controller.findAllItem);
+router.get('/items/api',controller.findAllItems);
 
 //find list item by id
 router.get('/items/id/:id',controller.findOneItem);
@@ -17,7 +17,7 @@ router.get('/items/id/:id',controller.findOneItem);
 router.get('/items/name/:name',controller.findByName);
 
 //find all users
-router.get('/users/api',controller.findAllUser);
+router.get('/users/api',controller.findAllUsers);
 
 //find user by id
 router.get('/users/id/:id',controller.findOneUser);
@@ -26,7 +26,7 @@ router.get('/users/id/:id',controller.findOneUser);
 router.get('/users/name/:name',controller.findByUserName);
 
 //update a user's information
-router.put('/user/id/:id',controller.updataUsers);
+router.put('/user/id/:id',controller.updateUsers);
 
 // define the home page route
 router.get('/', function(req, res) {
