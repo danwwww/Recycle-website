@@ -65,6 +65,17 @@ var findAllUsers = function (req, res) {
     });
 };
 
+var findAllGrades = function (req, res) {
+    Grades.find({}, function (err, grade) {
+        if (!err) {
+            //console.log(grades);
+            res.send(grade);
+        } else {
+            res.sendStatus(404);
+        }
+    });
+};
+
 var findOneUser = function (req, res) {
     var userIndex = req.params.id;
     Users.findById(userIndex, function (err, user) {
@@ -88,7 +99,7 @@ var findByUserName = function (req, res) {
 };
 
 var updateUsers = function(req,res){
-    Users.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, user) {
+    Users.findOneAndUpdate({username: req.params.username}, req.body, {new: true}, function(err, user) {
         if (!err) {
             res.send(user)
         }else{
@@ -102,17 +113,6 @@ var findByEmail = function (req, res) {
     Users.findOne({email: userEmail}, function (err, user) {
         if (!err) {
             res.send(user);
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
-
-var findAllGrades = function (req, res) {
-    Grades.find({}, function (err, grades) {
-        if (!err) {
-            //console.log(grades);
-            res.send(grades);
         } else {
             res.sendStatus(404);
         }

@@ -29,7 +29,7 @@ router.get('/users/username/:username',controller.findByUserName);
 router.get('/users/email/:email',controller.findByEmail);
 
 //update a user's information
-router.put('/users/id/:id',controller.updateUsers);
+router.put('/users/username/:username',controller.updateUsers);
 
 //find all users' grade
 router.get('/grade/api',controller.findAllGrades);
