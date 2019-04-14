@@ -7,6 +7,7 @@ var createUser = function (req, res) {
         "name":req.body.name,
         "firstname": req.body.firstname,
         "lastname":req.body.lastname,
+        "username":req.body.username,
         "email":req.body.email,
         "passwordHash":req.body.passwordHash
     });
@@ -75,7 +76,7 @@ var findOneUser = function (req, res) {
 };
 
 var findByUserName = function (req, res) {
-    var userName = req.params.name;
+    var userName = req.params.username;
     Users.findOne({name: userName}, function (err, user) {
         if (!err) {
             res.send(user);
