@@ -23,7 +23,7 @@ router.get('/users/api',controller.findAllUsers);
 router.get('/users/id/:id',controller.findOneUser);
 
 //find user by name
-router.get('/users/name/:name',controller.findByUserName);
+router.get('/users/username/:username',controller.findByUserName);
 
 //find user by email
 router.get('/users/email/:email',controller.findByEmail);
