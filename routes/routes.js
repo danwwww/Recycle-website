@@ -29,7 +29,13 @@ router.get('/users/username/:username',controller.findByUserName);
 router.get('/users/email/:email',controller.findByEmail);
 
 //update a user's information
-router.put('/user/id/:id',controller.updateUsers);
+router.put('/users/id/:id',controller.updateUsers);
+
+//find all users' grade
+router.get('/grade/api',controller.findAllGrades);
+
+//find user's grade by username
+router.get('/grade/:username',controller.findOneGrade);
 
 // define the home page route
 router.get('/', function(req, res) {

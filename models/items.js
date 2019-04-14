@@ -33,5 +33,13 @@ var userSchema = mongoose.Schema(
     }
 );
 
+var gradeSchema = mongoose.Schema(
+    {
+        "username": String,
+        "score": String
+    }
+)
+
 module.exports = mongoose.model('items', itemSchema);
 module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model('grade', gradeSchema);

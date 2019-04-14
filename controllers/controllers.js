@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Items = mongoose.model('items');
 var Users = mongoose.model('users');
+var Grades = mongoose.model('grade');
 
 var createUser = function (req, res) {
     var user = new Users({
@@ -107,6 +108,28 @@ var findByEmail = function (req, res) {
     });
 };
 
+var findAllGrades = function (req, res) {
+    Grades.find({}, function (err, grades) {
+        if (!err) {
+            //console.log(grades);
+            res.send(grades);
+        } else {
+            res.sendStatus(404);
+        }
+    });
+};
+
+var findOneGrade = function (req, res) {
+    var userName = req.params.username;
+    Grades.findOne({username: userName}, function (err, grade) {
+        if (!err) {
+            res.send(grade);
+        } else {
+            res.sendStatus(404);
+        }
+    });
+};
+
 module.exports.createUser = createUser;
 module.exports.findAllItems = findAllItems;
 module.exports.findOneItem = findOneItem;
@@ -117,3 +140,5 @@ module.exports.findByUserName = findByUserName;
 module.exports.updateUsers = updateUsers;
 module.exports.createUser = createUser;
 module.exports.findByEmail = findByEmail;
+module.exports.findAllGrades = findAllGrades;
+module.exports.findOneGrade = findOneGrade;
