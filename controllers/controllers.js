@@ -95,6 +95,17 @@ var updateUsers = function(req,res){
     });
 };
 
+var findByEmail = function (req, res) {
+    var userEmail = req.params.email;
+    Users.findOne({email: userEmail}, function (err, user) {
+        if (!err) {
+            res.send(user);
+        } else {
+            res.sendStatus(404);
+        }
+    });
+};
+
 module.exports.createUser = createUser;
 module.exports.findAllItems = findAllItems;
 module.exports.findOneItem = findOneItem;
@@ -104,3 +115,4 @@ module.exports.findOneUser = findOneUser;
 module.exports.findByUserName = findByUserName;
 module.exports.updateUsers = updateUsers;
 module.exports.createUser = createUser;
+module.exports.findByEmail = findByEmail;

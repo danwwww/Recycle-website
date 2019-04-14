@@ -25,6 +25,9 @@ router.get('/users/id/:id',controller.findOneUser);
 //find user by name
 router.get('/users/name/:name',controller.findByUserName);
 
+//find user by email
+router.get('/users/email/:email',controller.findByEmail);
+
 //update a user's information
 router.put('/user/id/:id',controller.updateUsers);
 
