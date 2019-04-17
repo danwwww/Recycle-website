@@ -32,10 +32,10 @@ router.get('/users/email/:email',controller.findByEmail);
 router.put('/users/username/:username',controller.updateUsers);
 
 //find all users' grade
-router.get('/grade/api',controller.findAllGrades);
+router.get('/grades/api',controller.findAllGrades);
 
 //find user's grade by username
-router.get('/grade/:username',controller.findOneGrade);
+router.get('/grades/:username',controller.findOneGrade);
 
 // define the home page route
 router.get('/', function(req, res) {

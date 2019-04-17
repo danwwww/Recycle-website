@@ -42,4 +42,4 @@ var gradeSchema = mongoose.Schema(
 
 module.exports = mongoose.model('items', itemSchema);
 module.exports = mongoose.model('users', userSchema);
-module.exports = mongoose.model('grade', gradeSchema);
+module.exports = mongoose.model('grades', gradeSchema);

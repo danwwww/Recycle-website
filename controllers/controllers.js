@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Items = mongoose.model('items');
 var Users = mongoose.model('users');
-var Grades = mongoose.model('grade');
+var Grades = mongoose.model('grades');
 
 var createUser = function (req, res) {
     var user = new Users({
