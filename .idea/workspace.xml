@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40a3475d-c71f-4045-bfd7-ddb560c51d50" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/css/landing.css" afterPath="$PROJECT_DIR$/css/landing.css" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/views/landing.html" afterPath="$PROJECT_DIR$/views/landing.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,8 +52,8 @@
       <file leaf-file-name="landing.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/landing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="110" column="18" lean-forward="false" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="18" />
+            <state relative-caret-position="161">
+              <caret line="105" column="41" lean-forward="true" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
               <folding>
                 <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -128,8 +129,8 @@
         <option value="$PROJECT_DIR$/views/head.js" />
         <option value="$PROJECT_DIR$/routes/routes.js" />
         <option value="$PROJECT_DIR$/css/head_style.css" />
-        <option value="$PROJECT_DIR$/views/landing.html" />
         <option value="$PROJECT_DIR$/css/landing.css" />
+        <option value="$PROJECT_DIR$/views/landing.html" />
       </list>
     </option>
   </component>
@@ -305,12 +306,12 @@
       <workItem from="1555906973026" duration="572000" />
       <workItem from="1555907801219" duration="2213000" />
       <workItem from="1555910756365" duration="1258000" />
-      <workItem from="1555912480847" duration="2143000" />
+      <workItem from="1555912480847" duration="2559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80499000" />
+    <option name="totallyTimeSpent" value="80915000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="22" y="43" width="1330" height="776" extended-state="0" />
@@ -630,14 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/head_style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3097">
@@ -664,10 +657,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/landing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="110" column="18" lean-forward="false" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="18" />
+        <state relative-caret-position="161">
+          <caret line="105" column="41" lean-forward="true" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
           </folding>
