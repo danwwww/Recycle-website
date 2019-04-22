@@ -69,5 +69,6 @@ document.writeln("                <div class=\"clearfix\"></div>");
 document.writeln("            </div>");
 document.writeln("        </div>");
 document.writeln("    </div>");
+document.writeln("</div>");
 document.writeln("</body>");
 document.writeln("</html>");

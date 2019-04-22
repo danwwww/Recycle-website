@@ -39,7 +39,7 @@ router.get('/grades/:username',controller.findOneGrade);
 
 // define the home page route
 router.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../views/home.html'));
+    res.sendFile(path.join(__dirname, '../views/landing.html'));
 });
 
 // define the My Account page route
