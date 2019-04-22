@@ -5,9 +5,6 @@ var Grades = mongoose.model('grades');
 
 var createUser = function (req, res) {
     var user = new Users({
-        "name":req.body.name,
-        "firstname": req.body.firstname,
-        "lastname":req.body.lastname,
         "username":req.body.username,
         "email":req.body.email,
         "passwordHash":req.body.passwordHash

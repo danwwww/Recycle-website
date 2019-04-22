@@ -9,15 +9,6 @@ var itemSchema = mongoose.Schema(
 
 var userSchema = mongoose.Schema(
     {
-        "name": String,
-        "firstname": {
-            type: String,
-            required: false
-        },
-        "lastname": {
-            type: String,
-            required: false
-        },
         "username":{
             type: String,
             required: true

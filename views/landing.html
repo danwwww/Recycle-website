@@ -98,17 +98,17 @@
             <h1>Login</h1>
         </div>
         <div class="content-bottom">
-            <form action="#" method="post">
+            <form>
                 <div class="field-group">
                     <span class="fa fa-user" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="text1" id="text1" type="text" class= "Useremail" placeholder="Email" required>
+                        <input name="text1" id="text1" type="text" class="Useremail" onfocus="if (this.value=='Your email')  this.value=''; " placeholder="Email" required>
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-lock" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="password" id="myInput" type="Password" class="Userpassword" placeholder="Password">
+                        <input name="password" id="myInput" type="Password" class="Userpassword" onfocus="if (this.value=='Your password')  this.value='';" placeholder="Password" required>
                     </div>
                 </div>
                 <div class="wthree-field">
@@ -122,7 +122,7 @@
                 </ul>
                 <ul class="list-login-bottom">
                     <li class="">
-                        <a href="#" class="">Create Account</a>
+                        <a href="register.html" class="">Create Account</a>
                     </li>
                     <li class="clearfix"></li>
                 </ul>
