@@ -24,6 +24,8 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
     <!-- //online-fonts -->
 
+    <script src="./Cookies.js"></script>
+    <script src="./User.js"></script>
 </head>
 <body>
 <!-- header -->
@@ -100,17 +102,17 @@
                 <div class="field-group">
                     <span class="fa fa-user" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="text1" id="text1" type="text" value="" placeholder="Email" required>
+                        <input name="text1" id="text1" type="text" class= "Useremail" placeholder="Email" required>
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-lock" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="password" id="myInput" type="Password" placeholder="Password">
+                        <input name="password" id="myInput" type="Password" class="Userpassword" placeholder="Password">
                     </div>
                 </div>
                 <div class="wthree-field">
-                    <button type="submit" class="btn">Get Started</button>
+                    <button type="submit" class="btn" onclick=myFunction()>Get Started</button>
                 </div>
                 <ul class="list-login">
                     <li>
@@ -128,5 +130,47 @@
         </div>
     </div>
 </div>
+
+<script>
+    var data;
+    var userEmail;
+
+    function myFunction() {
+        userEmail = document.getElementsByClassName("Useremail");
+        var password = document.getElementsByClassName("Userpassword");
+        password= password[0].value;
+
+        User.setUser(userEmail[0].value);
+        console.log("Myuser:", User.current);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                data = this.responseText;
+                if(data == ''){
+                    alert('This email has not register yet')
+                }else {
+                    data = JSON.parse(data);
+                    console.log(data);
+                    passwordLogin = data.passwordHash;
+                    console.log(passwordLogin);
+                    console.log("password = ", password);
+                    console.log((passwordLogin == password));
+
+                    setCookie("username", data._id, 3);
+                    setCookie("useremail", data.email,3);
+                    console.log(getCookie("username"));
+
+                    if (passwordLogin == password) {
+                        window.location.href = "home.html" + "?id=" + data._id;
+                    } else {
+                        alert('Sorry, your password is wrong. Please try again');
+                    }
+                }
+            }
+        };
+        xhttp.open("GET", "/api/email/"+userEmail[0].value, true);
+        xhttp.send();
+    }
+</script>
 </body>
 </html>
