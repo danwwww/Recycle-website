@@ -95,7 +95,7 @@
             <h1>Register</h1>
         </div>
         <div class="content-bottom">
-            <form action="" method="post" onsubmit="return buildAccount();">
+            <form action="/api" method="post">
                 <div class="field-group">
                     <span class="fa fa-user" aria-hidden="true"></span>
                     <div class="wthree-field">
@@ -158,7 +158,7 @@
         }
 
         xmlHttp= new XMLHttpRequest();
-        xmlHttp.open("GET","api/email/"+user.email,true);
+        xmlHttp.open("GET","users/email/"+user.email,true);
         xmlHttp.onload = function () {
             console.log("responseText",xmlHttp.responseText != "");
             if(xmlHttp.responseText != ""){

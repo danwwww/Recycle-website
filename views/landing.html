@@ -98,7 +98,7 @@
             <h1>Login</h1>
         </div>
         <div class="content-bottom">
-            <form action="" method="post" onsubmit="return myFunction();">
+            <form action="" method="get">
                 <div class="field-group">
                     <span class="fa fa-user" aria-hidden="true"></span>
                     <div class="wthree-field">
@@ -168,7 +168,7 @@
                 }
             }
         };
-        xhttp.open("GET", "/api/email/"+userEmail[0].value, true);
+        xhttp.open("GET", "/users/email/"+userEmail[0].value, true);
         xhttp.send();
     }
 </script>

@@ -5,7 +5,7 @@ const router = express.Router();
 var controller = require('../controllers/controllers.js');
 
 //Create a new user
-router.post('/login.html/api', controller.createUser);
+router.post('/api', controller.createUser);
 
 //Find all list items
 router.get('/items/api',controller.findAllItems);
@@ -17,7 +17,8 @@ router.get('/items/id/:id',controller.findOneItem);
 router.get('/items/name/:name',controller.findByName);
 
 //find all users
-router.get('/users/api',controller.findAllUsers);
+router.get('/api',controller.findAllUsers);
+router.get('/landing.html/api',controller.findAllUsers);
 
 //find user by id
 router.get('/users/id/:id',controller.findOneUser);
