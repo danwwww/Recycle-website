@@ -6,8 +6,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
 app.use(express.static('views'));
-app.use(__dirname + '/css', express.static('css'));
-app.use(__dirname + '/images', express.static('images'));
+app.use('/css', express.static('css'));
+app.use('/images', express.static('images'));
 
 // Database setup
 require('./models/db.js');
