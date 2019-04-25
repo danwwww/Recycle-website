@@ -99,27 +99,23 @@
                 <div class="field-group">
                     <span class="fa fa-user" aria-hidden="true"></span>
                     <div class="wthree-field">
-
-                        <input name="username" id="text2" type="text" class="Username" onfocus="if (this.value==&#39;Your username&#39;)  this.value=&#39;&#39;;" placeholder="Username" required="">
-
+                        <input name="text1" id="username" type="text" class="Username" onfocus="if (this.value=='Your username')  this.value='';" placeholder="Username" required>
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-envelope" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="email" id="text1" type="text" class="Useremail" onfocus="if (this.value==&#39;Your email&#39;)  this.value=&#39;&#39;;" placeholder="Email" required="">
-
+                        <input name="text2" id="email" type="text" class="Useremail" onfocus="if (this.value=='Your email')  this.value='';" placeholder="Email" required>
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-lock" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="passwordHash" id="myInput" type="Password" class="Userpassword" onfocus="if (this.value==&#39;Your password&#39;)  this.value=&#39;&#39;;" placeholder="Password" required="">
-
+                        <input name="password" id="password" type="password" class="Userpassword" onfocus="if (this.value=='Your password')  this.value='';" placeholder="Password" required>
                     </div>
                 </div>
                 <div class="wthree-field">
-                    <button type="submit" class="btn" onclick="buildAccount()">Set up my account</button>
+                    <button type="submit" class="btn" onclick=buildAccount()>Set up my account</button>
                 </div>
             </form>
         </div>
