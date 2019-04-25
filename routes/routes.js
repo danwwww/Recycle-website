@@ -57,6 +57,8 @@ router.get('/register.html', function(req, res) {
     res.sendFile(path.join(__dirname, '../views/register.html'));
 });
 
+router.get('/home', controller.validateUser);
+
 // define the My Account page route
 router.get('/account', function(req, res) {
     res.sendFile(path.join(__dirname, '../views/account.html'));

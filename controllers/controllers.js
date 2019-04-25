@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Items = mongoose.model('items');
 var Users = mongoose.model('users');
 var Grades = mongoose.model('grades');
+var path = require('path');
 
 var createUser = function (req, res) {
     var user = new Users({
@@ -16,6 +17,28 @@ var createUser = function (req, res) {
             res.sendStatus(400);
         }
     });
+};
+
+var validateUser = function (req, res) {
+    if (req.session && req.session.user) { // Check if session exists
+        // lookup the user in the DB by pulling their email from the session
+        Users.findOne({ email: req.session.user.email }, function (err, user) {
+            if (!user) {
+                // if the user isn't found in the DB, reset the session info and
+                // redirect the user to the login page
+                req.session.reset();
+                res.redirect('/');
+            } else {
+                // expose the user to the template
+                res.locals.user = user;
+
+                // render the dashboard page
+                res.sendFile(path.join(__dirname, '../views/home.html'));
+            }
+        });
+    } else {
+        res.redirect('/');
+    }
 };
 
 var findAllItems = function (req, res) {
@@ -116,7 +139,7 @@ var findByEmail = function (req, res) {
     });
 };
 
-var handleLogin = function (req, res) {
+/*var handleLogin = function (req, res) {
         var email = req.body.email;
         Users.findOne({email: email}, function (err, user) {
             if (!err) {
@@ -131,6 +154,21 @@ var handleLogin = function (req, res) {
                 res.sendStatus(404);
             }
         });
+}; */
+
+var handleLogin = function(req, res) {
+    Users.findOne({ email: req.body.email }, function(err, user) {
+        if (!user) {
+            res.send('Invalid email or password.');
+        } else {
+            if (req.body.psw === user.passwordHash) {
+                req.session.user = user;
+                res.redirect('/home');
+            } else {
+                res.send('Invalid email or password.');
+            }
+        }
+    });
 };
 
 var findOneGrade = function (req, res) {
@@ -157,3 +195,4 @@ module.exports.findByEmail = findByEmail;
 module.exports.findAllGrades = findAllGrades;
 module.exports.findOneGrade = findOneGrade;
 module.exports.handleLogin = handleLogin;
+module.exports.validateUser = validateUser;
