@@ -95,23 +95,27 @@
             <h1>Register</h1>
         </div>
         <div class="content-bottom">
-            <form>
+            <form action="/api" id="register">
                 <div class="field-group">
                     <span class="fa fa-user" aria-hidden="true"></span>
                     <div class="wthree-field">
+
                         <input name="username" id="text2" type="text" class="Username" onfocus="if (this.value==&#39;Your username&#39;)  this.value=&#39;&#39;;" placeholder="Username" required="">
+
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-envelope" aria-hidden="true"></span>
                     <div class="wthree-field">
                         <input name="email" id="text1" type="text" class="Useremail" onfocus="if (this.value==&#39;Your email&#39;)  this.value=&#39;&#39;;" placeholder="Email" required="">
+
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-lock" aria-hidden="true"></span>
                     <div class="wthree-field">
                         <input name="passwordHash" id="myInput" type="Password" class="Userpassword" onfocus="if (this.value==&#39;Your password&#39;)  this.value=&#39;&#39;;" placeholder="Password" required="">
+
                     </div>
                 </div>
                 <div class="wthree-field">
@@ -134,19 +138,19 @@
     }
     function buildAccount(){
         var user={};
-        user.firstname = document.getElementsByClassName("Username")[0].value;
+        user.username = document.getElementById("username").value;
         console.log(user.username);
-        if (document.getElementsByClassName("Useremail")[0].value == ""){
+        if (document.getElementById("email").value == ""){
             alert("Email must be filled")
         }else{
-            user.email = document.getElementsByClassName("Useremail")[0].value;
+            user.email = document.getElementById("email").value;
             console.log(user.email);
         }
 
-        if (document.getElementsByClassName("Userpassword")[0].value == ""){
+        if (document.getElementsById("password").value == ""){
             alert("Password must be filled");
         }else{
-            user.passwordHash = document.getElementsByClassName("Userpassword")[0].value;
+            user.passwordHash = document.getElementById("password").value;
             console.log(user.passwordHash);
         }
 
@@ -158,7 +162,7 @@
         }
 
         xmlHttp= new XMLHttpRequest();
-        xmlHttp.open("GET","api/email/"+user.email,true);
+        xmlHttp.open("GET","users/email/"+user.email,true);
         xmlHttp.onload = function () {
             console.log("responseText",xmlHttp.responseText != "");
             if(xmlHttp.responseText != ""){
