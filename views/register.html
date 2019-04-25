@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0115)https://thawing-thicket-16347.herokuapp.com/register.html?username=test1&text1=test1%40gmail.com&password=test1pass -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <title>Register</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="" />
+    
+    <meta name="keywords" content="">
     <!--// Meta tag Keywords -->
 
     <!-- css files -->
-    <link rel="stylesheet" href="../css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="../css/head_style.css" type="text/css" media="all" /> <!-- Style-CSS -->
-    <link rel="stylesheet" href="../css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="../css/lightbox.css">  <!-- For-Gallery-CSS -->
-    <link rel="stylesheet" href="../css/landing.css"> <!-- For-Landing-CSS -->
+    <link rel="stylesheet" href="./register_files/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="./register_files/head_style.css" type="text/css" media="all"> <!-- Style-CSS -->
+    <link rel="stylesheet" href="./register_files/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="./register_files/lightbox.css">  <!-- For-Gallery-CSS -->
+    <link rel="stylesheet" href="./register_files/landing.css"> <!-- For-Landing-CSS -->
     <!-- //css files -->
 
     <!-- online-fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lobster&amp;subset=cyrillic,latin-ext,vietnamese" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Kanit:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
+    <link rel="stylesheet" href="./register_files/font-awesome.min.css">
+    <link href="./register_files/css" rel="stylesheet">
+    <link href="./register_files/css(1)" rel="stylesheet">
+    <link href="./register_files/css(2)" rel="stylesheet">
 
 </head>
 <body>
@@ -38,8 +38,8 @@
         <div class="col-md-4 w3l_header_right">
             <div class="navbar-right social-icons">
                 <ul>
-                    <li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-                    <li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
+                    <li><a href="https://thawing-thicket-16347.herokuapp.com/register.html?username=test1&amp;text1=test1%40gmail.com&amp;password=test1pass#" class="fa fa-facebook icon-border facebook"> </a></li>
+                    <li><a href="https://thawing-thicket-16347.herokuapp.com/register.html?username=test1&amp;text1=test1%40gmail.com&amp;password=test1pass#" class="fa fa-twitter icon-border twitter"> </a></li>
                 </ul>
             </div>
         </div>
@@ -48,7 +48,7 @@
     <div class="header-bottom">
         <div class="container">
             <div class="col-md-3 logo-w3l">
-                <h1><a class="navbar-brand" href="home.html"><span>R</span>ecycling Life</a></h1>
+                <h1><a class="navbar-brand" href="https://thawing-thicket-16347.herokuapp.com/home.html"><span>R</span>ecycling Life</a></h1>
             </div>
             <div class="col-md-9 navi-w3l">
                 <nav class="navbar navbar-default">
@@ -99,23 +99,23 @@
                 <div class="field-group">
                     <span class="fa fa-user" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="text1" id="text2" type="text" class="Userename" onfocus="if (this.value=='Your username')  this.value='';" placeholder="Username" required>
+                        <input name="username" id="text2" type="text" class="Username" onfocus="if (this.value==&#39;Your username&#39;)  this.value=&#39;&#39;;" placeholder="Username" required="">
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-envelope" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="text1" id="text1" type="text" class="Useremail" onfocus="if (this.value=='Your email')  this.value='';" placeholder="Email" required>
+                        <input name="email" id="text1" type="text" class="Useremail" onfocus="if (this.value==&#39;Your email&#39;)  this.value=&#39;&#39;;" placeholder="Email" required="">
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-lock" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="password" id="myInput" type="Password" class="Userpassword" onfocus="if (this.value=='Your password')  this.value='';" placeholder="Password" required>
+                        <input name="passwordHash" id="myInput" type="Password" class="Userpassword" onfocus="if (this.value==&#39;Your password&#39;)  this.value=&#39;&#39;;" placeholder="Password" required="">
                     </div>
                 </div>
                 <div class="wthree-field">
-                    <button type="submit" class="btn" onclick=buildAccount()>Set up my account</button>
+                    <button type="submit" class="btn" onclick="buildAccount()">Set up my account</button>
                 </div>
             </form>
         </div>
@@ -186,5 +186,5 @@
         xmlHttp.send(null);
     }
 </script>
-</body>
-</html>
+
+</body></html>

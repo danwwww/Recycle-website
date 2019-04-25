@@ -2,6 +2,12 @@ const express = require('express');
 var path = require('path');
 const router = express.Router();
 
+//delete later
+var mongoose = require('mongoose');
+var Items = mongoose.model('items');
+var Users = mongoose.model('users');
+var Grades = mongoose.model('grades');
+
 var controller = require('../controllers/controllers.js');
 
 //Create a new user
@@ -25,11 +31,16 @@ router.get('/users/id/:id',controller.findOneUser);
 //find user by username
 router.get('/users/username/:username',controller.findByUserName);
 
+//handle login logic
+router.post('/login', controller.handleLogin);
+
 //find user by email
 router.get('/users/email/:email',controller.findByEmail);
 
 //update a user's information
 router.put('/users/username/:username',controller.updateUsers);
+
+router.post('/', controller.createUser);
 
 //find all users' grade
 router.get('/grades/api',controller.findAllGrades);
@@ -40,6 +51,9 @@ router.get('/grades/:username',controller.findOneGrade);
 // define the home page route
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../views/landing.html'));
+});
+router.get('/register.html', function(req, res) {
+    res.sendFile(path.join(__dirname, '../views/register.html'));
 });
 
 // define the My Account page route

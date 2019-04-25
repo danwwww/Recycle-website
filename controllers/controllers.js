@@ -116,6 +116,23 @@ var findByEmail = function (req, res) {
     });
 };
 
+var handleLogin = function (req, res) {
+        var email = req.body.email;
+        Users.findOne({email: email}, function (err, user) {
+            if (!err) {
+                if (user.passwordHash === req.body.psw){
+                    res.send(user);
+                }
+                else {
+                    res.send("wrong password");
+                }
+
+            } else {
+                res.sendStatus(404);
+            }
+        });
+};
+
 var findOneGrade = function (req, res) {
     var userName = req.params.username;
     Grades.findOne({username: userName}, function (err, grade) {
@@ -139,3 +156,4 @@ module.exports.createUser = createUser;
 module.exports.findByEmail = findByEmail;
 module.exports.findAllGrades = findAllGrades;
 module.exports.findOneGrade = findOneGrade;
+module.exports.handleLogin = handleLogin;

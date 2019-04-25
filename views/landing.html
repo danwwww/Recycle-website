@@ -98,34 +98,12 @@
             <h1>Login</h1>
         </div>
         <div class="content-bottom">
-            <form>
-                <div class="field-group">
-                    <span class="fa fa-user" aria-hidden="true"></span>
-                    <div class="wthree-field">
-                        <input name="text1" id="text1" type="text" class="Useremail" onfocus="if (this.value=='Your email')  this.value=''; " placeholder="Email" required>
-                    </div>
-                </div>
-                <div class="field-group">
-                    <span class="fa fa-lock" aria-hidden="true"></span>
-                    <div class="wthree-field">
-                        <input name="password" id="myInput" type="Password" class="Userpassword" onfocus="if (this.value=='Your password')  this.value='';" placeholder="Password" required>
-                    </div>
-                </div>
-                <div class="wthree-field">
-                    <button type="submit" class="btn" onclick=myFunction()>Get Started</button>
-                </div>
-                <ul class="list-login">
-                    <li>
-                        <a href="#" class="text-right">forgot password?</a>
-                    </li>
-                    <li class="clearfix"></li>
-                </ul>
-                <ul class="list-login-bottom">
-                    <li class="">
-                        <a href="register.html" class="">Create Account</a>
-                    </li>
-                    <li class="clearfix"></li>
-                </ul>
+            <form action = "/login" method = POST>
+                Email:
+                <input type="email" name="email" ><br>
+                Password:
+                <input type="password" name="psw" ><br>
+                <input type="submit">
             </form>
         </div>
     </div>
@@ -136,40 +114,9 @@
     var userEmail;
 
     function myFunction() {
-        userEmail = document.getElementsByClassName("Useremail");
-        var password = document.getElementsByClassName("Userpassword");
-        password= password[0].value;
-
-        User.setUser(userEmail[0].value);
-        console.log("Myuser:", User.current);
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                data = this.responseText;
-                if(data == ''){
-                    alert('This email has not register yet')
-                }else {
-                    data = JSON.parse(data);
-                    console.log(data);
-                    passwordLogin = data.passwordHash;
-                    console.log(passwordLogin);
-                    console.log("password = ", password);
-                    console.log((passwordLogin == password));
-
-                    setCookie("username", data._id, 3);
-                    setCookie("useremail", data.email,3);
-                    console.log(getCookie("username"));
-
-                    if (passwordLogin == password) {
-                        window.location.href = "home.html" + "?id=" + data._id;
-                    } else {
-                        alert('Sorry, your password is wrong. Please try again');
-                    }
-                }
-            }
-        };
-        xhttp.open("GET", "/api/email/"+userEmail[0].value, true);
-        xhttp.send();
+        userEmail = document.getElementsByName("email");
+        var password = document.getElementsByName("password");
+        window.location = "localhost:3000/" + userEmail[0].value + '/' + password[0].value;
     }
 </script>
 </body>
