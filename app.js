@@ -7,8 +7,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
 app.use(express.static('views'));
-app.use(__dirname + '/css', express.static('css'));
-app.use(__dirname + '/images', express.static('images'));
+app.use('/css', express.static('css'));
+app.use('/images', express.static('images'));
 
 //Session setup, template by Brent Jensen for StormPath. Adapted for use to maintain session information
 app.use(session({
