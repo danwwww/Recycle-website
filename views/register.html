@@ -95,23 +95,23 @@
             <h1>Register</h1>
         </div>
         <div class="content-bottom">
-            <form action="/api" id="register">
+            <form action="/api" id="register" method = POST>
                 <div class="field-group">
                     <span class="fa fa-user" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="text1" id="username" type="text" class="Username" onfocus="if (this.value=='Your username')  this.value='';" placeholder="Username" required>
+                        <input name="username" id="username" type="text" class="Username" onfocus="if (this.value=='Your username')  this.value='';" placeholder="Username" required>
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-envelope" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="text2" id="email" type="text" class="Useremail" onfocus="if (this.value=='Your email')  this.value='';" placeholder="Email" required>
+                        <input name="email" id="email" type="text" class="Useremail" onfocus="if (this.value=='Your email')  this.value='';" placeholder="Email" required>
                     </div>
                 </div>
                 <div class="field-group">
                     <span class="fa fa-lock" aria-hidden="true"></span>
                     <div class="wthree-field">
-                        <input name="password" id="password" type="password" class="Userpassword" onfocus="if (this.value=='Your password')  this.value='';" placeholder="Password" required>
+                        <input name="passwordHash" id="password" type="password" class="Userpassword" onfocus="if (this.value=='Your password')  this.value='';" placeholder="Password" required>
                     </div>
                 </div>
                 <div class="wthree-field">
