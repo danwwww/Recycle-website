@@ -1,6 +1,7 @@
 .main {
     background: url(../images/recycling_home.jpg) no-repeat center;
     background-size: cover;
+    background-attachment:fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
