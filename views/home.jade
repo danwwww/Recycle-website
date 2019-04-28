@@ -3,3 +3,15 @@ extends layout
 block content
     h1 Welcome, #{user.username}!
     p Remember to recycle!!
+
+    img(src='../Images/exampleGraph.jpg', alt='Example Graph')
+
+    button(type='button') Enter Recycling (Coming Soon)
+    button(type='button') Manage Friends (Coming Soon)
+    button(type='button') My Account (Coming Soon)
+    button(type='button') Leaderboards (Coming Soon)
+    form(action='/logout', method='get')
+        input#frm1_submit(type='submit', value='Logout', name='Submit')
+    p
+        | Fact of the Week:
+        | Enough plastic bottles are put in landfill each year to circle Earth four times!

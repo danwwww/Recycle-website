@@ -43,6 +43,11 @@ var validateUser = function (req, res) {
     }
 };
 
+var logOut = function(req, res) {
+    req.session.reset();
+    res.redirect('/');
+};
+
 var findAllItems = function (req, res) {
     Items.find({}, function (err, items) {
         if (!err) {
@@ -200,3 +205,4 @@ module.exports.findAllGrades = findAllGrades;
 module.exports.findOneGrade = findOneGrade;
 module.exports.handleLogin = handleLogin;
 module.exports.validateUser = validateUser;
+module.exports.logOut = logOut;
