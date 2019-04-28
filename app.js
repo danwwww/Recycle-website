@@ -6,7 +6,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
-app.use(express.static('views'));
+app.use(express.static(__dirname + '/views'));
 app.use('/css', express.static('css'));
 app.use('/images', express.static('images'));
 

@@ -57,8 +57,33 @@ router.get('/grades/:username',controller.findOneGrade);
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../views/landing.html'));
 });
+
+router.get('/css/landing.css', function(req, res) {
+    res.sendFile(path.join(__dirname, '../css/landing.css'));
+});
+router.get('/css/bootstrap.css', function(req, res) {
+    res.sendFile(path.join(__dirname, '../css/bootstrap.css'));
+});
+router.get('/css/font-awesome.css', function(req, res) {
+    res.sendFile(path.join(__dirname, '../css/font-awesome.css'));
+});
+router.get('/css/head_style.css', function(req, res) {
+    res.sendFile(path.join(__dirname, '../css/head_style.css'));
+});
+router.get('/css/lightbox.css', function(req, res) {
+    res.sendFile(path.join(__dirname, '../css/lightbox.css'));
+});
+router.get('/images/recycling_home.jpg', function(req, res) {
+    res.sendFile(path.join(__dirname, '../images/recycling_home.jpg'));
+});
+router.get('/css/home.css', function(req, res) {
+    res.sendFile(path.join(__dirname, '../css/home.css'));
+});
 router.get('/register.html', function(req, res) {
     res.sendFile(path.join(__dirname, '../views/register.html'));
+});
+router.get('/images/chart.png', function(req, res) {
+    res.sendFile(path.join(__dirname, '../images/chart.png'));
 });
 
 router.get('/home', controller.validateUser);
