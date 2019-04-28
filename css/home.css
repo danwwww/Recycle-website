@@ -11,6 +11,13 @@
     z-index: 1;
 }
 
+.title {
+    text-align: center;
+    position: relative;
+    top: 210px;
+    color: white;
+}
+
 .chart{
     text-align: center;
     position: relative;
@@ -19,7 +26,7 @@
 
 .button-four {
     position: relative;
-    top: 290px;
+    top: 270px;
     text-align: center;
 }
 
@@ -28,4 +35,10 @@
     border: none;
     color: #fff;
     margin: 5px;
+}
+
+.bottom {
+    text-align: center;
+    color: black;
+    top: 400px;
 }

@@ -1,16 +1,20 @@
 extends layout
 
 block content
-    h1 Welcome, #{user.username}!
-    p Remember to recycle!!
-
-    img(src='../images/chart.png', alt='Example Graph')
-    button(type='button') Enter Recycling (Coming Soon)
-    button(type='button') Manage Friends (Coming Soon)
-    button(type='button') My Account (Coming Soon)
-    button(type='button') Leaderboards (Coming Soon)
-    form(action='/logout', method='get')
-        input#frm1_submit(type='submit', value='Logout', name='Submit')
-    p
-        | Fact of the Week:
-        | Enough plastic bottles are put in landfill each year to circle Earth four times!
+    .main
+        .title
+            h1 Welcome, #{user.username}!
+            p Remember to recycle!!
+        .chart
+            img(src='../images/chart.png' width="496" height="328", alt='Example Graph')
+        .button-four
+            button(type='button' class='btn') Enter Recycling (Coming Soon)
+            button(type='button' class='btn') Manage Friends (Coming Soon)
+            button(type='button' class='btn') My Account (Coming Soon)
+            button(type='button' class='btn') Leaderboards (Coming Soon)
+            form(action='/logout', method='get')
+            input#frm1_submit(type='submit', value='Logout', name='Submit' class='btn')
+        .bottom
+            p
+                | Fact of the Week:
+                | Enough plastic bottles are put in landfill each year to circle Earth four times!
