@@ -13,6 +13,8 @@ var controller = require('../controllers/controllers.js');
 //Create a new user
 router.post('/api', controller.createUser);
 
+router.post('/register', controller.createUser);
+
 //Find all list items
 router.get('/items/api',controller.findAllItems);
 

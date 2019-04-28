@@ -5,18 +5,20 @@ var Grades = mongoose.model('grades');
 var path = require('path');
 
 var createUser = function (req, res) {
-    var user = new Users({
-        "username":req.body.username,
-        "email":req.body.email,
-        "passwordHash":req.body.passwordHash
-    });
-    user.save(function (err, newUsers) {
-        if (!err) {
-            res.send(newUsers);
-        } else {
-            res.sendStatus(400);
-        }
-    });
+        var user = new Users({
+            "username":req.body.username,
+            "email":req.body.email,
+            "passwordHash":req.body.passwordHash,
+            "friends":[]
+        });
+        user.save(function (err, newUsers) {
+            if (!err) {
+                res.sendFile(path.join(__dirname, '../views/landing.html'));
+            }
+            else {
+                res.end('You were not added');
+            }
+        });
 };
 
 var validateUser = function (req, res) {
@@ -33,7 +35,7 @@ var validateUser = function (req, res) {
                 res.locals.user = user;
 
                 // render the dashboard page
-                res.sendFile(path.join(__dirname, '../views/home.html'));
+                res.render(path.join(__dirname, '../views/home.jade'), { user: user });
             }
         });
     } else {
@@ -163,8 +165,10 @@ var handleLogin = function(req, res) {
         } else {
             if (req.body.psw === user.passwordHash) {
                 req.session.user = user;
-                res.redirect('/home');
-            } else {
+                res.render(path.join(__dirname, '../views/home.jade'), { user: user });
+                //res.sendFile(path.join(__dirname, '../views/home.html'));
+                }
+            else {
                 res.send('Invalid email or password.');
             }
         }

@@ -18,6 +18,7 @@ app.use(session({
     activeDuration: 5 * 60 * 1000,
 }));
 
+
 // Database setup
 require('./models/db.js');
 

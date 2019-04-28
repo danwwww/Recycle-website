@@ -15,10 +15,14 @@ var userSchema = mongoose.Schema(
         },
         "email": {
             type: String,
-            required: true
+            required: true,
         },
         "passwordHash": {
             type: String,
+            required: true
+        },
+        "friends": {
+            type: Array,
             required: true
         }
     }
