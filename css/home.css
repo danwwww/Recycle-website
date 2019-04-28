@@ -1,0 +1,31 @@
+.main {
+    background: url(../images/recycling_home.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 50vw;
+    position: relative;
+    z-index: 1;
+}
+
+.chart{
+    text-align: center;
+    position: relative;
+    top: 250px;
+}
+
+.button-four {
+    position: relative;
+    top: 290px;
+    text-align: center;
+}
+
+.btn {
+    background: #06b393;
+    border: none;
+    color: #fff;
+    margin: 5px;
+}

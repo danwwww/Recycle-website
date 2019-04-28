@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,33 +7,9 @@
 
 </head>
 <body>
-    <p id = "result">Hello, </p>
+    <div id="result"></div>
     <script>
-
-        /*function getCookie(cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for(var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-        /*username = getCookie("session");
-        if (username === ""){
-            document.getElementById("result").innerHTML = "You are not logged in"
-        }
-        else{*/
-            document.set
-            document.getElementById("result").innerHTML = document.cookie;
-            console.log("hello");
-
-
+            document.getElementById("result").innerHTML = app.locals(user).username;
     </script>
 </body>
 </html>
