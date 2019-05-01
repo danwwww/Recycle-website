@@ -129,7 +129,7 @@ body a:hover {
     -o-background-size: cover;
     -ms-background-size: cover;
     position: relative;
-    min-height: 100vh;
+    min-height: 120vh;
 }
 
 .layer {
