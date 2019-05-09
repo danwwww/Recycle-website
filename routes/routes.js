@@ -25,6 +25,8 @@ router.get('/items/api',controller.findAllItems);
 //find list item by id
 router.get('/items/id/:id',controller.findOneItem);
 
+router.get('/subdirectory/:name',controller.narrowResults);
+
 //find list item by name
 router.get('/items/name/:name',controller.findByName);
 

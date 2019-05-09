@@ -44,7 +44,14 @@ var validateUser = function (req, res) {
 };
 
 var goToDirectory = function(req, res) {
-    res.render(path.join(__dirname, '../views/directory.jade'), { user: req.session.user });
+    if (req.session && req.session.user){
+        res.render(path.join(__dirname, '../views/directory.jade'), { user: req.session.user });
+    }
+    else {
+        req.session.reset();
+        res.redirect('/');
+    }
+
 }
 
 var logOut = function(req, res) {
@@ -72,6 +79,11 @@ var findOneItem = function (req, res) {
             res.sendStatus(404);
         }
     });
+};
+
+var narrowResults = function (req, res){
+    var name = req.params.name;
+    res.render(path.join(__dirname, '../views/subdirectory.jade'), { user: req.session.user, type: name });
 };
 
 var findByName = function (req, res) {
@@ -211,3 +223,4 @@ module.exports.handleLogin = handleLogin;
 module.exports.validateUser = validateUser;
 module.exports.logOut = logOut;
 module.exports.goToDirectory = goToDirectory;
+module.exports.narrowResults = narrowResults;
