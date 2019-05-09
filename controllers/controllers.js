@@ -43,6 +43,10 @@ var validateUser = function (req, res) {
     }
 };
 
+var goToDirectory = function(req, res) {
+    res.render(path.join(__dirname, '../views/directory.jade'), { user: req.session.user });
+}
+
 var logOut = function(req, res) {
     req.session.reset();
     res.redirect('/');
@@ -206,3 +210,4 @@ module.exports.findOneGrade = findOneGrade;
 module.exports.handleLogin = handleLogin;
 module.exports.validateUser = validateUser;
 module.exports.logOut = logOut;
+module.exports.goToDirectory = goToDirectory;

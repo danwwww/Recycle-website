@@ -17,6 +17,8 @@ router.get('/logout', controller.logOut);
 
 router.post('/register', controller.createUser);
 
+router.get('/directory', controller.goToDirectory);
+
 //Find all list items
 router.get('/items/api',controller.findAllItems);
 
