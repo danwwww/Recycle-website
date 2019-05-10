@@ -2,7 +2,8 @@ var mongoose = require("mongoose");
 var itemSchema = mongoose.Schema(
     {
         "name":String,
-        "description":String,
+        "category": String,
+        "method":String,
         "photo":String
     }
 );
