@@ -1,10 +1,11 @@
 var mongoose = require("mongoose");
+require('mongoose-type-url');
 var itemSchema = mongoose.Schema(
     {
         "name":String,
-        "category": String,
+        "category":String,
         "method":String,
-        "photo":String
+        "photo":mongoose.SchemaTypes.Url
     }
 );
 

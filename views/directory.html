@@ -6,11 +6,22 @@
 
     <link rel="stylesheet" href="../css/directory.css"> <!-- For-Directory-CSS -->
     <script type="text/javascript" src="head.js"></script>
+    <script src="all_items.js"></script>
+    <script src="directory.js"></script>
 
 </head>
 <body>
 <div class="main">
-
+    <div class="search">
+        <div class="search_bar"><input class = "itemSearch" placeholder="Search for an item..." onkeyup=drawTable(this.value)>
+        <br><br></div>
+        <table class="table">
+            <thread><tr id = "categories"></tr></thread>
+            <tbody id = "description"></tbody>
+        </table>
+        <div class="clearfix"> </div>
+        <div class="btn"><button onclick = window.loadItems()>Reset</button></div>
+    </div>
 </div>
 </body>
 </html>

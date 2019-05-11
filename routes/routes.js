@@ -1,6 +1,10 @@
 const express = require('express');
 var path = require('path');
 const router = express.Router();
+const bodyParser = require("../node_modules/body-parser");
+
+router.use(bodyParser.urlencoded({extended: false}));
+router.use(bodyParser.json());
 
 //delete later
 var mongoose = require('mongoose');
@@ -17,15 +21,11 @@ router.get('/logout', controller.logOut);
 
 router.post('/register', controller.createUser);
 
-router.get('/directory', controller.goToDirectory);
-
 //Find all list items
-router.get('/items/api',controller.findAllItems);
+router.get('/directory.html/items/api',controller.findAllItems);
 
 //find list item by id
 router.get('/items/id/:id',controller.findOneItem);
-
-router.get('/subdirectory/:name',controller.narrowResults);
 
 //find list item by name
 router.get('/items/name/:name',controller.findByName);
