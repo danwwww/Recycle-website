@@ -7,7 +7,7 @@
     -o-background-size: cover;
     -ms-background-size: cover;
     position: relative;
-    min-height: 250vh;
+    min-height: 240vh;
 }
 
 .table {
