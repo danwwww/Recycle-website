@@ -11,7 +11,6 @@ function drawTable(search) {
     });
 
     var list = document.getElementById("description")
-    console.log("list",list)
     list.innerHTML = ''
     AllItems.list.forEach(function (item) {
         if (item.category.toUpperCase().indexOf(search.toUpperCase()) != -1 || item.name.toUpperCase().indexOf(search.toUpperCase()) != -1 || search === "") {
