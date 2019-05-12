@@ -1,0 +1,34 @@
+Functionality 1: The Website will have a userbase that can register accounts and log in.
+
+Users will be able to log in to see their own personal homepage and use the website, and without being logged people cannot access the website's content.
+Users will be able to register a new account with an email address (must be not already in the system), a password and a username. They will 
+then be able to log in with this account if it was successfully created, or be promted if it was not.
+
+The landing page (https://frozen-reaches-24378.herokuapp.com) allows you to log in with an existing user. e.g. "test1@gmail.com", "test1pass"
+
+The landing page allows you to click to make an account (https://frozen-reaches-24378.herokuapp.com/register), and create a new user.
+For example you could create the user: Username = testingRegister, password = pass, email = fakeEmail1@gmail.com, then log in on the landing page
+with the newly added account. However trying to add test1@gmail.com to a new account will alert the user that the email is already in the system.
+
+The home page (https://frozen-reaches-24378.herokuapp.com/home) shows your username and allows you to navigate to other functions
+NOTE: The home page redirect you to the login page if you try to visit it directly without first logging in.
+
+RELATED FILES:
+  Views: landing.html, register.html, home.html, home.jade, head.html, head.js
+  Routes: routes.js
+  Controllers: controllers.js
+  Models: Users.js
+
+Functionality 2: The website will contain a directory of items and instructions on how to recycle them that can be searched for a given item.
+
+Users will be able to navigate to recycling directory and select an item to highlight, alternatively they can search for an item whereby the list will
+automatically begin to match results using XML functionality.
+
+The directory page (https://frozen-reaches-24378.herokuapp.com/directory.html) allows you to see the recycling directory from the MongoDB database
+in order to query a particular item
+
+RELATED FILES:
+  Views: directory.html, directory.js, head.html, head.js, all_items.js
+  Routes: routes.js
+  Controllers: controllers.js
+  Models: Users.js
