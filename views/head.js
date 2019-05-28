@@ -24,14 +24,6 @@ document.writeln("                    <li>Email: <a href=\"mailto:info@example.c
 document.writeln("                    <li>Address: The University of Melbourne</li>");
 document.writeln("                </ul>");
 document.writeln("            </div>");
-document.writeln("            <div class=\"col-md-4 w3l_header_right\">");
-document.writeln("                <div class=\"navbar-right social-icons\">");
-document.writeln("                    <ul>");
-document.writeln("                        <li><a href=\"#\" class=\"fa fa-facebook icon-border facebook\"> </a></li>");
-document.writeln("                        <li><a href=\"#\" class=\"fa fa-twitter icon-border twitter\"> </a></li>");
-document.writeln("                    </ul>");
-document.writeln("                </div>");
-document.writeln("            </div>");
 document.writeln("            <div class=\"clearfix\"> </div>");
 document.writeln("        </div>");
 document.writeln("        <div class=\"header-bottom\">");
