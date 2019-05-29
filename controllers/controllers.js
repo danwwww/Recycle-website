@@ -203,6 +203,13 @@ const getFriends = function (req, res) {
     res.render(path.join(__dirname, '../views/friends.jade'), { user: req.session.user });
 };
 
+const getAccount = function (req, res) {
+    res.render(path.join(__dirname, '../views/Account.jade'), { user: req.session.user });
+};
+const getDirectory = function (req, res) {
+    res.sendFile(path.join(__dirname, '../views/directory.html'));
+};
+
 
 module.exports.createUser = createUser;
 module.exports.findAllItems = findAllItems;
@@ -222,3 +229,5 @@ module.exports.logOut = logOut;
 module.exports.getGrades = getGrades;
 module.exports.getFriends = getFriends;
 module.exports.getAdmin = getAdmin;
+module.exports.getAccount = getAccount;
+module.exports.getDirectory = getDirectory;

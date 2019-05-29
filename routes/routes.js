@@ -21,8 +21,10 @@ router.get('/logout', controller.logOut);
 
 router.post('/register', controller.createUser);
 
+router.get('/directory', controller.getDirectory);
+
 //Find all list items
-router.get('/directory.html/items/api',controller.findAllItems);
+router.get('/directory/items/api',controller.findAllItems);
 
 //find list item by id
 router.get('/items/id/:id',controller.findOneItem);
@@ -97,6 +99,8 @@ router.get('/grade', controller.getGrades);
 router.get('/admin', controller.getAdmin);
 
 router.get('/friends', controller.getFriends);
+
+router.get('/account', controller.getAccount);
 
 
 // define the My Account page route
