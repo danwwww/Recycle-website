@@ -26,6 +26,14 @@ var userSchema = mongoose.Schema(
         "friends": {
             type: Array,
             required: true
+        },
+        "grade": {
+            type: Array,
+            required: true
+        },
+        "isAdmin": {
+            type: Boolean,
+            required: true
         }
     }
 );

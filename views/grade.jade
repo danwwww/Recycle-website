@@ -2,4 +2,14 @@ extends layout
 
 block content
     .main
-        p Placeholder for #{user.username}'s grade.
+        .title
+
+            p Placeholder for #{user.username}'s grade.
+            p Score for Sun is #{user.grade[0]}
+            p Score for Mon is #{user.grade[1]}
+            p Score for Tues is #{user.grade[2]}
+            p Score for Wed is #{user.grade[3]}
+            p Score for Thurs is #{user.grade[4]}
+            p Score for Fri is #{user.grade[5]}
+            p Score for Sat is #{user.grade[6]}
+            p Today's score is #{user.grade[new Date().getDay()]}

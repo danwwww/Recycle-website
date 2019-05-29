@@ -191,8 +191,34 @@ var findOneGrade = function (req, res) {
     });
 };
 
+
+
 const getGrades = function (req, res) {
+    var scores = [];
+    var n = new Date().getDay()
+    for (let i = 0; i < 7; i++){
+        if (i === n){
+            scores[i] = req.session.user.grade[i] + 1;
+            req.session.user.grade[i] = req.session.user.grade[i] + 1;
+        }
+        else {
+            scores[i] = req.session.user.grade[i];
+        }
+
+    }
+
+    var text = '{"grade" : ' + '[' + scores + ']}';
+
+    Users.findOneAndUpdate({username: req.session.user.username}, JSON.parse(text), {new: true}, function(err, user) {
+        if (!err) {
+            //res.send(user)
+        }else{
+            //res.sendStatus(404)
+        }
+    });
+
     res.render(path.join(__dirname, '../views/grade.jade'), { user: req.session.user });
+    //res.send(req.session.user);
 };
 
 const getAdmin = function (req, res) {
