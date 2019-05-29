@@ -191,6 +191,19 @@ var findOneGrade = function (req, res) {
     });
 };
 
+const getGrades = function (req, res) {
+    res.render(path.join(__dirname, '../views/grade.jade'), { user: req.session.user });
+};
+
+const getAdmin = function (req, res) {
+    res.render(path.join(__dirname, '../views/admin.jade'), { user: req.session.user });
+};
+
+const getFriends = function (req, res) {
+    res.render(path.join(__dirname, '../views/friends.jade'), { user: req.session.user });
+};
+
+
 module.exports.createUser = createUser;
 module.exports.findAllItems = findAllItems;
 module.exports.findOneItem = findOneItem;
@@ -206,3 +219,6 @@ module.exports.findOneGrade = findOneGrade;
 module.exports.handleLogin = handleLogin;
 module.exports.validateUser = validateUser;
 module.exports.logOut = logOut;
+module.exports.getGrades = getGrades;
+module.exports.getFriends = getFriends;
+module.exports.getAdmin = getAdmin;

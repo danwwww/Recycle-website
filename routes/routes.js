@@ -92,6 +92,13 @@ router.get('/images/chart.png', function(req, res) {
 
 router.get('/home', controller.validateUser);
 
+router.get('/grade', controller.getGrades);
+
+router.get('/admin', controller.getAdmin);
+
+router.get('/friends', controller.getFriends);
+
+
 // define the My Account page route
 router.get('/account', function(req, res) {
     res.sendFile(path.join(__dirname, '../views/account.html'));
