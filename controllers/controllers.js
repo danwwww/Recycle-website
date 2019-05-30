@@ -195,30 +195,29 @@ var findOneGrade = function (req, res) {
 
 const getGrades = function (req, res) {
     var scores = [];
-    var n = new Date().getDay()
+    var n = new Date().getDay();
     for (let i = 0; i < 7; i++){
         if (i === n){
-            scores[i] = req.session.user.grade[i] + 1;
             req.session.user.grade[i] = req.session.user.grade[i] + 1;
+            if (req.session.user.username === "neffsta") {
+                req.session.user.username = "neffsta2";
+            }
+            else {
+                req.session.user.username = "neffsta";
+            }
         }
-        else {
-            scores[i] = req.session.user.grade[i];
-        }
-
     }
 
     var text = '{"grade" : ' + '[' + scores + ']}';
 
-    Users.findOneAndUpdate({username: req.session.user.username}, JSON.parse(text), {new: true}, function(err, user) {
-        if (!err) {
-            //res.send(user)
-        }else{
-            //res.sendStatus(404)
-        }
-    });
+    updateUser(req, res);
 
     res.render(path.join(__dirname, '../views/grade.jade'), { user: req.session.user });
     //res.send(req.session.user);
+};
+
+const updateUser = function (req, res) {
+    Users.findOneAndUpdate({username: req.session.user.username}, req.session.user, {new: true}, function(err, user) {});
 };
 
 const getAdmin = function (req, res) {
@@ -234,6 +233,12 @@ const getAccount = function (req, res) {
 };
 const getDirectory = function (req, res) {
     res.sendFile(path.join(__dirname, '../views/directory.html'));
+};
+
+const updateAccount = function(req, res){
+    req.session.user.username = req.body.uname;
+    updateUser(req, res);
+    getAccount(req, res);
 };
 
 
@@ -257,3 +262,4 @@ module.exports.getFriends = getFriends;
 module.exports.getAdmin = getAdmin;
 module.exports.getAccount = getAccount;
 module.exports.getDirectory = getDirectory;
+module.exports.updateAccount = updateAccount;

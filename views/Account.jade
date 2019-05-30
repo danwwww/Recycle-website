@@ -2,4 +2,13 @@ extends layout
 
 block content
     .main
-        p Placeholder for #{user.username}'s account. <img src = #{user.avatar}>;
+        .title
+            p Placeholder for #{user.username}'s account.
+            form(action='/account', method='post')
+                | Username:
+                input(type='text', name='uname')
+                br
+                | Bio:
+                input(type='text', name='bio')
+                br
+                input(type='submit', value='Submit')

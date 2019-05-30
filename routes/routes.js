@@ -102,6 +102,7 @@ router.get('/friends', controller.getFriends);
 
 router.get('/account', controller.getAccount);
 
+router.post('/account', controller.updateAccount);
 
 // define the My Account page route
 router.get('/account', function(req, res) {
