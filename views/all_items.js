@@ -17,7 +17,7 @@ AllItems = {
             }
             ;
         }
-        xhttp.open("GET", "/directory.html/items/api", true);
+        xhttp.open("GET", "/directory/items/api", true);
         xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
         xhttp.send();
 
