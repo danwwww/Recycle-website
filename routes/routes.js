@@ -21,6 +21,8 @@ router.get('/logout', controller.logOut);
 
 router.post('/register', controller.createUser);
 
+router.post('/directory', controller.handleRecycling);
+
 router.get('/directory', controller.getDirectory);
 
 //Find all list items
@@ -76,6 +78,10 @@ router.get('/css/font-awesome.css', function(req, res) {
 router.get('/css/head_style.css', function(req, res) {
     res.sendFile(path.join(__dirname, '../css/head_style.css'));
 });
+router.get('/css/directory.css', function(req, res) {
+    res.sendFile(path.join(__dirname, '../css/directory.css'));
+});
+
 router.get('/css/lightbox.css', function(req, res) {
     res.sendFile(path.join(__dirname, '../css/lightbox.css'));
 });

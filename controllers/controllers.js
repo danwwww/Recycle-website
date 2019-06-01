@@ -248,12 +248,21 @@ const getDirectory = function (req, res) {
 };
 
 const updateAccount = function(req, res){
-    req.session.user.username = req.body.uname;
-    req.session.user.bio = req.body.bio;
+    if (req.body.uname){
+        req.session.user.username = req.body.uname;
+    }
+    if (req.body.bio){
+        req.session.user.bio = req.body.bio;
+    }
     updateUser(req, res);
     getAccount(req, res);
 };
 
+const handleRecycling = function(req, res) {
+    req.session.grade[new Date().getDay()] = req.session.grade[new Date().getDay() + 1];
+    updateUser(req, res);
+    getDirectory(req, res);
+};
 
 module.exports.createUser = createUser;
 module.exports.findAllItems = findAllItems;
@@ -276,3 +285,4 @@ module.exports.getAdmin = getAdmin;
 module.exports.getAccount = getAccount;
 module.exports.getDirectory = getDirectory;
 module.exports.updateAccount = updateAccount;
+module.exports.handleRecycling = handleRecycling;

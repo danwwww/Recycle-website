@@ -12,8 +12,9 @@ block content
                 form(action='/account', method='post')
                     | Username:
                     input(type='text', name='uname')
-                    br
+                    input(type='submit', value='Submit')
+                form(action = '/account', method='post')
                     | Bio:
                     input(type='text', name='bio', style= 'height = 200px')
-                    br
                     input(type='submit', value='Submit')
+                    br

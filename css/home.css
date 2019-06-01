@@ -50,6 +50,10 @@ textarea {
     top: 400px;
 }
 
+input[type = submit]{
+    color: black;
+}
+
 .bargraph {
     height: 229px;
     position: relative;
