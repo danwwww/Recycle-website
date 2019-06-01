@@ -35,7 +35,11 @@ var validateUser = function (req, res) {
                 res.locals.user = user;
 
                 // render the dashboard page
-                res.render(path.join(__dirname, '../views/home.jade'), { user: user });
+                let gradeAdjusted = [];
+                for (let i = 0; i < 7; i++){
+                    gradeAdjusted[i] = req.session.user.grade[i] * 10;
+                }
+                res.render(path.join(__dirname, '../views/home.jade'), { user: user, gradeFormat : gradeAdjusted });
             }
         });
     } else {
@@ -170,7 +174,11 @@ var handleLogin = function(req, res) {
         } else {
             if (req.body.psw === user.passwordHash) {
                 req.session.user = user;
-                res.render(path.join(__dirname, '../views/home.jade'), { user: user });
+                let gradeAdjusted = [];
+                for (let i = 0; i < 7; i++){
+                    gradeAdjusted[i] = req.session.user.grade[i] * 10;
+                }
+                res.render(path.join(__dirname, '../views/home.jade'), { user: user, gradeFormat : gradeAdjusted });
                 //res.sendFile(path.join(__dirname, '../views/home.html'));
                 }
             else {
@@ -229,7 +237,11 @@ const getFriends = function (req, res) {
 };
 
 const getAccount = function (req, res) {
-    res.render(path.join(__dirname, '../views/Account.jade'), { user: req.session.user });
+    let gradeAdjusted = [];
+    for (let i = 0; i < 7; i++){
+        gradeAdjusted[i] = req.session.user[i] * 5;
+    }
+    res.render(path.join(__dirname, '../views/Account.jade'), { user: req.session.user, gradeFormat : gradeAdjusted });
 };
 const getDirectory = function (req, res) {
     res.sendFile(path.join(__dirname, '../views/directory.html'));
@@ -237,6 +249,7 @@ const getDirectory = function (req, res) {
 
 const updateAccount = function(req, res){
     req.session.user.username = req.body.uname;
+    req.session.user.bio = req.body.bio;
     updateUser(req, res);
     getAccount(req, res);
 };

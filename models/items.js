@@ -34,6 +34,14 @@ var userSchema = mongoose.Schema(
         "isAdmin": {
             type: Boolean,
             required: true
+        },
+        "Avatar": {
+            type: String,
+            required: true
+        },
+        "bio": {
+            type: String,
+            required: true
         }
     }
 );
@@ -43,7 +51,7 @@ var gradeSchema = mongoose.Schema(
         "username": String,
         "score": String
     }
-)
+);
 
 module.exports = mongoose.model('items', itemSchema);
 module.exports = mongoose.model('users', userSchema);

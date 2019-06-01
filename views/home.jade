@@ -6,7 +6,33 @@ block content
             h1 Welcome, #{user.username}!
             p Remember to recycle!!
         .chart
-            img(src='../images/chart.png' width="496" height="328", alt='Example Graph')
+            .bargraph(style='width: 511px;')
+                ul.bars
+                    li.bar1.purplebar(style='height: #{gradeFormat[0]}px;') #{user.grade[0]}
+                    li.bar2.redbar(style='height: #{gradeFormat[1]}px;') #{user.grade[1]}
+                    li.bar3.bluebar(style='height: #{gradeFormat[2]}px;') #{user.grade[2]}
+                    li.bar4.greenbar(style='height: #{gradeFormat[3]}px;') #{user.grade[3]}
+                    li.bar5.orangebar(style='height: #{gradeFormat[4]}px;') #{user.grade[4]}
+                    li.bar6.grapebar(style='height: #{gradeFormat[5]}px;') #{user.grade[5]}
+                    li.bar7.navybar(style='height: #{gradeFormat[6]}px;') #{user.grade[6]}
+
+
+                ul.label
+                    li Monday
+                    li Tuesday
+                    li Wednesday
+                    li Thursday
+                    li Friday
+                    li Saturday
+                    li Sunday
+                ul.y-axis
+                    li 20
+                    li 15
+                    li 10
+                    li 5
+                    li 0
+                p.centered Your Score
+
         .button-four
             button(type='button' class='btn') Enter Recycling
             button(type='button' class='btn') Manage Friends (Coming Soon)
@@ -18,3 +44,4 @@ block content
                 p
                     | Fact of the Week:
                     | Enough plastic bottles are put in landfill each year to circle Earth four times!
+

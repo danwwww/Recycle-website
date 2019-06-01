@@ -4,11 +4,16 @@ block content
     .main
         .title
             p Placeholder for #{user.username}'s account.
-            form(action='/account', method='post')
-                | Username:
-                input(type='text', name='uname')
-                br
-                | Bio:
-                input(type='text', name='bio')
-                br
-                input(type='submit', value='Submit')
+            img(src=user.Avatar, alt='HTML5 Icon', style='width:128px;height:128px;')
+            p Your Username is: #{user.username}
+            p Your email is: #{user.email}
+            p Bio: #{user.bio}
+            formtext
+                form(action='/account', method='post')
+                    | Username:
+                    input(type='text', name='uname')
+                    br
+                    | Bio:
+                    input(type='text', name='bio', style= 'height = 200px')
+                    br
+                    input(type='submit', value='Submit')
