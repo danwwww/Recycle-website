@@ -40,12 +40,12 @@ function drawTable(search) {
                 }
                 i = i + 1;
             });
-            let myButton = document.createElement("BUTTON");
-            myButton.type = "submit";
-            myButton.formmethod = "post";
-            myButton.formaction = "/directory";
-            myButton.value = "Recycle this item";
-            row.appendChild(myButton);
+            //let myButton = document.createElement("BUTTON");
+            //myButton.type = "submit";
+            //myButton.formmethod = "post";
+            //myButton.formaction = "/directory";
+            //myButton.value = "Recycle this item";
+            //row.appendChild(myButton);
             list.appendChild(row);
 
 
