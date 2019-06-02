@@ -7,9 +7,14 @@
     -o-background-size: cover;
     -ms-background-size: cover;
     position: relative;
-    min-height: 240vh;
+    min-height: 285vh;
 }
 
+.search {
+    width: 80%;
+    position: relative;
+    margin-left: 10%;
+}
 .table {
     text-align: left;
     position: relative;
