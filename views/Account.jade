@@ -3,22 +3,32 @@ extends layout
 block content
     .main
         .title
-            p Placeholder for #{user.username}'s account.
+            h2 Placeholder for #{user.username}'s account.
+            br
+            br
+            br
             img(src=user.Avatar, alt='HTML5 Icon', style='width:128px;height:128px;')
+            br
+            br
             p Your Username is: #{user.username}
             p Your email is: #{user.email}
             p Bio: #{user.bio}
+            br
+            br
+            br
             formtext
                 form(action='/account', method='post')
                     | New Username:
                     input(type='text', name='uname')
-                    input(type='submit', value='Submit')
+                    input(type='submit', value='Submit',class='btn')
+                br
                 form(action = '/account', method='post')
                     | New Bio:
                     input(type='text', name='bio')
-                    input(type='submit', value='Submit')
+                    input(type='submit', value='Submit',class='btn')
+                br
                 form(action = '/account', method='post')
                     | Link to new Avatar:
                     input(type='text', name='avatar')
-                    input(type='submit', value='Submit')
+                    input(type='submit', value='Submit',class='btn')
 

@@ -7,7 +7,7 @@
     -o-background-size: cover;
     -ms-background-size: cover;
     position: relative;
-    min-height: 285vh;
+    min-height: 245vh;
 }
 
 .search {

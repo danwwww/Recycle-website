@@ -172,7 +172,7 @@ div.bargraph div.colorfilter2 {
     position: absolute; bottom: 3px;
     margin: 0; padding: 0; }
 .label li {
-    color: black;
+    color: white;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 11px;
@@ -196,7 +196,7 @@ ul.y-axis li:first-child {
 }
 
 ul.y-axis li {
-    color: black;
+    color: white;
     font-size: 12px;
     height: 51px;
     line-height: 51px;
@@ -211,7 +211,7 @@ ul.y-axis li.units {
     height: auto;
 }
 /*labeling of the graph*/
-.bargraph  p {
+.bargraph h3 {
     position: absolute;
     left: 0;
     top: 236px;
@@ -222,8 +222,11 @@ ul.y-axis li.units {
 
     width: 100%;
     font-family: Verdana, sans-serif;
-    font-size: 10px; color: black;
+    font-size: 15px; color: white;
     line-height: 1.3em;
+    text-align: center;
 
 }
-.bargraph p.centered { text-align: center; }
+.bargraph p.centered { text-align: center; color:white}
+
+.main h2 {color:white; text-align: center}
