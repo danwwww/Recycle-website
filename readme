@@ -1,3 +1,15 @@
+NOTE ON ALL FUNCTIONALITIES: This website utilises session data, particularly the user data harvested when you first log in. Many of the
+functions are unavailable when not logged in, and will reroute you to the login page. Please ensure you are logged in to one of the sample
+accounts provided (or create your own with the register function) when you test the functionalities :)
+
+Sample logins for your convenience (we recommend you use one of these, as they have more interesting recycling data already in the system):
+1) Email: "neffj@student.unimelb.edu.au", password = "passw0rd2"
+
+2) Email: "test1@gmail.com", password = "test1pass"
+
+3) Email: "voal2001@gmail.com", password = "Tweiml2001"
+
+
 Functionality 1: The Website will have a userbase that can register accounts and log in.
 
 Users will be able to log in to see their own personal homepage and use the website, and without being logged people cannot access the website's content.
@@ -24,11 +36,52 @@ Functionality 2: The website will contain a directory of items and instructions 
 Users will be able to navigate to recycling directory and select an item to highlight, alternatively they can search for an item whereby the list will
 automatically begin to match results using XML functionality.
 
-The directory page (https://frozen-reaches-24378.herokuapp.com/directory.html) allows you to see the recycling directory from the MongoDB database
+The directory page (https://frozen-reaches-24378.herokuapp.com/directory) allows you to see the recycling directory from the MongoDB database
 in order to query a particular item
 
 RELATED FILES:
   Views: directory.html, directory.js, head.html, head.js, all_items.js
+  Routes: routes.js
+  Controllers: controllers.js
+  Models: Users.js, items.js
+
+Functionality 3: Users can enter recycling items.
+
+When users have selected an item from the recycling directory as above, they can then select the item to have it add to their score for
+the day, thereby gaining points for entering their recycling and allowing them to keep track of their individual efforts.
+
+The directory page (https://frozen-reaches-24378.herokuapp.com/directory) allows you to add recycling items
+The home page (https://frozen-reaches-24378.herokuapp.com/home) allows you to see the increased score from adding the items
+
+RELATED FILES:
+  Views: directory.html, home.html, home.jade, head.html, head.js, all_items.js, layout.jade, grade.jade, grade.html
+  Routes: routes.js
+  Controllers: controllers.js
+  Models: Users.js
+
+Functionality 4: Users can view their recycling progress in an easy to understand format.
+
+Users can see their recycling summary on their home page in the form of a coloured bar graph broken down by points per day. The progress is
+reset each day so that users can track their week-in-review from the home page.
+
+The grade page (https://frozen-reaches-24378.herokuapp.com/grade) shows a detailed breakdown of the grade for the week
+The home page (https://frozen-reaches-24378.herokuapp.com/home) shows a graph-only summary of the grade for the week
+
+RELATED FILES:
+  Views: home.html, home.jade, head.html, head.js, all_items.js, layout.jade, grade.jade, grade.html
+  Routes: routes.js
+  Controllers: controllers.js
+  Models: Users.js
+
+Functionality 5: Users can update their account information.
+
+Users can see their profile consisting of an avatar, a custom username and bio, as well as their email they used to sign up to the website.
+Users can change their username, bio or Avatar from one account page so that they can personalise their own account to suit their tastes.
+
+The account page (https://frozen-reaches-24378.herokuapp.com/account) allows you to view your account and customise your details
+
+RELATED FILES:
+  Views: acoount.html, account.jade, head.html, head.js, all_items.js, layout.jade
   Routes: routes.js
   Controllers: controllers.js
   Models: Users.js
