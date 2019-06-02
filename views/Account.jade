@@ -19,16 +19,16 @@ block content
             formtext
                 form(action='/account', method='post')
                     | New Username:
-                    input(type='text', name='uname')
+                    input(type='text', name='uname', class='reset')
                     input(type='submit', value='Submit',class='btn')
                 br
                 form(action = '/account', method='post')
                     | New Bio:
-                    input(type='text', name='bio')
+                    input(type='text', name='bio', class='reset')
                     input(type='submit', value='Submit',class='btn')
                 br
                 form(action = '/account', method='post')
                     | Link to new Avatar:
-                    input(type='text', name='avatar')
+                    input(type='text', name='avatar', class='reset')
                     input(type='submit', value='Submit',class='btn')
 

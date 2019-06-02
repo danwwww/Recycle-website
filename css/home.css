@@ -236,3 +236,18 @@ ul.y-axis li.units {
 .bargraph p.centered { text-align: center; color:white}
 
 .main h2 {color:white; text-align: center}
+
+.reset {
+    position: relative;
+    padding: 10px 0 10px 15px;
+    font-size: 17px;
+    font-weight: 300;
+    color: #ddd;
+    letter-spacing: 1px;
+    background-color: rgba(255,255,255,0.7);
+    margin-left: 2px;
+    box-sizing: border-box;
+    font-family: 'Mukta', sans-serif;
+    width: 25%;
+    outline: none;
+}
