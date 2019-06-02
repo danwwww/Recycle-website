@@ -42,6 +42,10 @@ var userSchema = mongoose.Schema(
         "bio": {
             type: String,
             required: true
+        },
+        "lastvisited": {
+            type: Int32,
+            required: true
         }
     }
 );

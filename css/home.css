@@ -19,7 +19,7 @@
 
 
 .chart{
-    text-align: center;
+    text-align: left;
     position: relative;
     top: 230px;
 }
@@ -173,18 +173,18 @@ div.bargraph div.colorfilter2 {
     position: absolute; bottom: 3px;
     margin: 0; padding: 0; }
 .label li {
-    color: white;
+    color: black;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 11px;
     width: 73px;
 
-    float: left;
-    text-align: center;
+    /*float: left;
+    /*text-align: center;
     /*safeguard against a label that is too long - if they type
        that in from the HTML
      */
-    overflow: hidden;
+    /*overflow: hidden;*/
 
     font-family: "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
     line-height: 1.6em;
@@ -208,7 +208,7 @@ ul.y-axis li:first-child {
 }
 
 ul.y-axis li {
-    color: #aba8a8;
+    color: black;
     font-size: 12px;
     height: 51px;
     line-height: 51px;

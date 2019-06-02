@@ -204,23 +204,27 @@ var findOneGrade = function (req, res) {
 const getGrades = function (req, res) {
     var scores = [];
     var n = new Date().getDay();
-    for (let i = 0; i < 7; i++){
-        if (i === n){
-            req.session.user.grade[i] = req.session.user.grade[i] + 1;
-            if (req.session.user.username === "neffsta") {
-                req.session.user.username = "neffsta2";
-            }
-            else {
-                req.session.user.username = "neffsta";
-            }
+    let bestScore = [];
+    let highest = 0;
+    for (let j = 0; j < 7; j++){
+        if (req.session.user.grade[j] > highest){
+            bestScore[0] = req.session.user.grade[j];
+            bestScore[1] = j;
+            highest = bestScore[0];
         }
     }
-
     var text = '{"grade" : ' + '[' + scores + ']}';
-
+    let gradeAdjusted = [];
+    for (let i = 0; i < 7; i++){
+        gradeAdjusted[i] = req.session.user.grade[i] * 10;
+    }
+    let todayField = new Date().getDay();
+    let highestUser = Users.find().sort({grades : -1}).limit(1);
+    let highestScore = highestUser.grade[new Date().getDay()];
     updateUser(req, res);
 
-    res.render(path.join(__dirname, '../views/grade.jade'), { user: req.session.user });
+    res.render(path.join(__dirname, '../views/grade.jade'), { user: req.session.user, gradeFormat: gradeAdjusted,
+                                                                bestGrade: bestScore, highest: highestScore});
     //res.send(req.session.user);
 };
 
@@ -233,7 +237,12 @@ const getAdmin = function (req, res) {
 };
 
 const getFriends = function (req, res) {
-    res.render(path.join(__dirname, '../views/friends.jade'), { user: req.session.user });
+    let friends;
+    let i = 0;
+    while(req.session.user.friends[i]){
+        friends[i] = Users.findOne({ _id: req.session.user.friends[i] })
+    }
+    res.render(path.join(__dirname, '../views/friends.jade'), { user: req.session.user, friends: friends });
 };
 
 const getAccount = function (req, res) {
@@ -259,7 +268,7 @@ const updateAccount = function(req, res){
 };
 
 const handleRecycling = function(req, res) {
-    req.session.grade[new Date().getDay()] = req.session.grade[new Date().getDay() + 1];
+    req.session.user.grade[new Date().getDay()] = req.session.user.grade[new Date().getDay()] + 1;
     updateUser(req, res);
     getDirectory(req, res);
 };
