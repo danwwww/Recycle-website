@@ -3,6 +3,8 @@ const Items = mongoose.model('items');
 const Users = mongoose.model('users');
 const path = require('path');
 
+/*Create a new user with entered username, password, email and default avatar and bio. Set scores to 0*/
+
 const createUser = function (req, res) {
         const user = new Users({
             "username":req.body.username,

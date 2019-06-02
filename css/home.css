@@ -1,3 +1,5 @@
+/*Default styling for the website, simple and clean*/
+
 .main {
     background: url(../images/recycling_home.jpg) no-repeat center;
     background-size: cover;
@@ -37,6 +39,8 @@
     margin: 5px;
 }
 
+/*Prevent clashing of white text with white textboxes*/
+
 input[type = text] {
     color: black;
 }
@@ -53,6 +57,8 @@ textarea {
 input[type = submit]{
     color: black;
 }
+
+/*bar graph formatting and design for displaying the grade summary*/
 
 .bargraph {
     height: 229px;
