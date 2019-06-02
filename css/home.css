@@ -112,7 +112,6 @@ div.bargraph div.colorfilter2 {
     position: absolute;
     width: 30px;
     height: 200px;
-    /*move it up from bottom label*/
     bottom: 29px;
     padding: 0;
     margin: 0;
@@ -157,7 +156,7 @@ div.bargraph div.colorfilter2 {
 .bargraph ul.bars li.bar8 { left: 532px; }
 .bargraph ul.bars li.bar9 { left: 605px; }
 
-/* bottom means 100% in background-position */
+
 .bargraph ul.bars li.bluebar  { background-position: 0px bottom; }
 .bargraph ul.bars li.redbar   { background-position: -30px bottom; }
 .bargraph ul.bars li.greenbar { background-position: -60px bottom; }
@@ -178,23 +177,12 @@ div.bargraph div.colorfilter2 {
     letter-spacing: 0.1em;
     font-size: 11px;
     width: 73px;
-
-    /*float: left;
-    /*text-align: center;
-    /*safeguard against a label that is too long - if they type
-       that in from the HTML
-     */
-    /*overflow: hidden;*/
-
     font-family: "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
     line-height: 1.6em;
 }
 
 
 ul.y-axis { list-style-type: none; position: absolute;
-    /*
-      positioning the ul box - the box that goes
-      around the list, 100, 75,... */
     left: -45px;
     width: 40px;
     text-align: right;

@@ -10,11 +10,15 @@ block content
             p Bio: #{user.bio}
             formtext
                 form(action='/account', method='post')
-                    | Username:
+                    | New Username:
                     input(type='text', name='uname')
                     input(type='submit', value='Submit')
                 form(action = '/account', method='post')
-                    | Bio:
-                    input(type='text', name='bio', style= 'height = 200px')
+                    | New Bio:
+                    input(type='text', name='bio')
                     input(type='submit', value='Submit')
-                    br
+                form(action = '/account', method='post')
+                    | Link to new Avatar:
+                    input(type='text', name='avatar')
+                    input(type='submit', value='Submit')
+

@@ -30,16 +30,8 @@ const userSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        "friends": {
-            type: Array,
-            required: true
-        },
         "grade": {
             type: Array,
-            required: true
-        },
-        "isAdmin": {
-            type: Boolean,
             required: true
         },
         "Avatar": {
@@ -50,6 +42,10 @@ const userSchema = mongoose.Schema(
             type: String,
             required: true
         },
+        "lastvisited": {
+            type: Number,
+            required: true
+        }
     }
 );
 

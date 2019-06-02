@@ -8,7 +8,10 @@ const createUser = function (req, res) {
             "username":req.body.username,
             "email":req.body.email,
             "passwordHash":req.body.passwordHash,
-            "friends":[]
+            "Avatar": "https://www.pphfoundation.ca/wp-content/uploads/2018/05/default-avatar.png",
+            "grade": [0,0,0,0,0,0,0],
+            "lastvisited": 0,
+            "bio": "Proud member of our recycling community!"
         });
         user.save(function (err) {
             if (!err) {
@@ -78,19 +81,17 @@ const handleLogin = function(req, res) {
         } else {
             if (req.body.psw === user.passwordHash) {
                 req.session.user = user;
-                let currentDay = new Date().getDay();
-                if (user.lastVisited !== currentDay){
+                let currentDate = new Date()
+                let currentDay = currentDate.getDay();
+                if (user.lastvisited !== currentDay){
                     req.session.user.grade[currentDay] = 0;
-                    req.session.user.lastVisited = currentDay;
+                    req.session.user.lastvisited = currentDay;
                 }
+                updateUser(req, res);
                 let gradeAdjusted = [];
                 for (let i = 0; i < 7; i++){
                     gradeAdjusted[i] = req.session.user.grade[i] * 10;
                 }
-
-
-                //reset the score from last week
-
 
                 res.render(path.join(__dirname, '../views/home.jade'), { user: user, gradeFormat : gradeAdjusted });
                 }
@@ -154,6 +155,9 @@ const updateAccount = function(req, res){
     if (req.body.bio){
         req.session.user.bio = req.body.bio;
     }
+    if (req.body.avatar) {
+        req.session.user.Avatar = req.body.avatar;
+    }
     updateUser(req, res);
     getAccount(req, res);
 };
@@ -163,7 +167,7 @@ const updateAccount = function(req, res){
 const handleRecycling = function(req, res) {
     req.session.user.grade[new Date().getDay()] = req.session.user.grade[new Date().getDay()] + 1;
     updateUser(req, res);
-    getDirectory(req, res);
+    validateUser(req, res);
 };
 
 /*--------------------Function Exports---------------------------*/
