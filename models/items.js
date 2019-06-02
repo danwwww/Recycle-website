@@ -1,6 +1,11 @@
-var mongoose = require("mongoose");
+
+
+const mongoose = require("mongoose");
 require('mongoose-type-url');
-var itemSchema = mongoose.Schema(
+
+/*A recycling item*/
+
+const itemSchema = mongoose.Schema(
     {
         "name":String,
         "category":String,
@@ -9,7 +14,9 @@ var itemSchema = mongoose.Schema(
     }
 );
 
-var userSchema = mongoose.Schema(
+/*A user of the system, including their grade*/
+
+const userSchema = mongoose.Schema(
     {
         "username":{
             type: String,
@@ -43,10 +50,6 @@ var userSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        "lastvisited": {
-            type: Int32,
-            required: true
-        }
     }
 );
 

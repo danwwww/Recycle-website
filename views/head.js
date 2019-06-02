@@ -1,3 +1,5 @@
+/*Defines the navigation bar to switch between main function of the website*/
+
 document.writeln("<!DOCTYPE html>");
 document.writeln("<html>");
 document.writeln("<head>");

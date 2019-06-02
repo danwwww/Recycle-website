@@ -1,17 +1,16 @@
-var mongoose = require('mongoose');
-var Items = mongoose.model('items');
-var Users = mongoose.model('users');
-var Grades = mongoose.model('grades');
-var path = require('path');
+const mongoose = require('mongoose');
+const Items = mongoose.model('items');
+const Users = mongoose.model('users');
+const path = require('path');
 
-var createUser = function (req, res) {
-        var user = new Users({
+const createUser = function (req, res) {
+        const user = new Users({
             "username":req.body.username,
             "email":req.body.email,
             "passwordHash":req.body.passwordHash,
             "friends":[]
         });
-        user.save(function (err, newUsers) {
+        user.save(function (err) {
             if (!err) {
                 res.sendFile(path.join(__dirname, '../views/landing.html'));
             }
@@ -21,7 +20,10 @@ var createUser = function (req, res) {
         });
 };
 
-var validateUser = function (req, res) {
+/*Ensure a user is logged in otherwise do not allow them to access website functionalities. NOTE: must log in to
+* be able to test functions*/
+
+const validateUser = function (req, res) {
     if (req.session && req.session.user) { // Check if session exists
         // lookup the user in the DB by pulling their email from the session
         Users.findOne({ email: req.session.user.email }, function (err, user) {
@@ -33,8 +35,6 @@ var validateUser = function (req, res) {
             } else {
                 // expose the user to the template
                 res.locals.user = user;
-
-                // render the dashboard page
                 let gradeAdjusted = [];
                 for (let i = 0; i < 7; i++){
                     gradeAdjusted[i] = req.session.user.grade[i] * 10;
@@ -47,15 +47,19 @@ var validateUser = function (req, res) {
     }
 };
 
-var logOut = function(req, res) {
+/* User logged out, direct them to log in screen and remove session data*/
+
+const logOut = function(req, res) {
     req.session.reset();
     res.redirect('/');
 };
 
-var findAllItems = function (req, res) {
+/*Plain API displaying functions from earlier prototypes removed for brevity and professionalism. findAllItems kept
+* for functionality in recycling directory*/
+
+const findAllItems = function (req, res) {
     Items.find({}, function (err, items) {
         if (!err) {
-            //console.log(items);
             res.send(items);
         } else {
             res.sendStatus(400);
@@ -63,123 +67,32 @@ var findAllItems = function (req, res) {
     });
 };
 
-var findOneItem = function (req, res) {
-    var itemIndex = req.params.id;
-    Items.findById(itemIndex, function (err, item) {
-        if (!err) {
-            res.send(item);
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
 
-var findByName = function (req, res) {
-    var itemName = req.params.name;
-    Items.findOne({name: itemName}, function (err, item) {
-        if (!err) {
-            res.send(item);
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
+/* User attempted a log in, check email and password against database. If successful store their user information in
+ * session data to help templating and updating user info whilst on the site */
 
-var findAllUsers = function (req, res) {
-    Users.find({}, function (err, users) {
-        if (!err) {
-            //console.log(users);
-            res.send(users);
-        } else {
-            res.sendStatus(400);
-        }
-    });
-};
-
-var findAllGrades = function (req, res) {
-    Grades.find({}, function (err, grade) {
-        if (!err) {
-            //console.log(grades);
-            res.send(grade);
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
-
-var findOneUser = function (req, res) {
-    var userIndex = req.params.id;
-    Users.findById(userIndex, function (err, user) {
-        if (!err) {
-            res.send(user);
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
-
-var findByUserName = function (req, res) {
-    var userName = req.params.username;
-    Users.findOne({username: userName}, function (err, user) {
-        if (!err) {
-            res.send(user);
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
-
-var updateUsers = function(req,res){
-    Users.findOneAndUpdate({username: req.params.username}, req.body, {new: true}, function(err, user) {
-        if (!err) {
-            res.send(user)
-        }else{
-            res.sendStatus(404)
-        }
-    });
-};
-
-var findByEmail = function (req, res) {
-    var userEmail = req.params.email;
-    Users.findOne({email: userEmail}, function (err, user) {
-        if (!err) {
-            res.send(user);
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
-
-/*var handleLogin = function (req, res) {
-        var email = req.body.email;
-        Users.findOne({email: email}, function (err, user) {
-            if (!err) {
-                if (user.passwordHash === req.body.psw){
-                    res.send(user);
-                }
-                else {
-                    res.send("wrong password");
-                }
-
-            } else {
-                res.sendStatus(404);
-            }
-        });
-}; */
-
-var handleLogin = function(req, res) {
+const handleLogin = function(req, res) {
     Users.findOne({ email: req.body.email }, function(err, user) {
         if (!user) {
             res.send('Invalid email or password.');
         } else {
             if (req.body.psw === user.passwordHash) {
                 req.session.user = user;
+                let currentDay = new Date().getDay();
+                if (user.lastVisited !== currentDay){
+                    req.session.user.grade[currentDay] = 0;
+                    req.session.user.lastVisited = currentDay;
+                }
                 let gradeAdjusted = [];
                 for (let i = 0; i < 7; i++){
                     gradeAdjusted[i] = req.session.user.grade[i] * 10;
                 }
+
+
+                //reset the score from last week
+
+
                 res.render(path.join(__dirname, '../views/home.jade'), { user: user, gradeFormat : gradeAdjusted });
-                //res.sendFile(path.join(__dirname, '../views/home.html'));
                 }
             else {
                 res.send('Invalid email or password.');
@@ -188,22 +101,9 @@ var handleLogin = function(req, res) {
     });
 };
 
-var findOneGrade = function (req, res) {
-    var userName = req.params.username;
-    Grades.findOne({username: userName}, function (err, grade) {
-        if (!err) {
-            res.send(grade);
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
-
-
 
 const getGrades = function (req, res) {
-    var scores = [];
-    var n = new Date().getDay();
+
     let bestScore = [];
     let highest = 0;
     for (let j = 0; j < 7; j++){
@@ -213,37 +113,23 @@ const getGrades = function (req, res) {
             highest = bestScore[0];
         }
     }
-    var text = '{"grade" : ' + '[' + scores + ']}';
     let gradeAdjusted = [];
     for (let i = 0; i < 7; i++){
         gradeAdjusted[i] = req.session.user.grade[i] * 10;
     }
-    let todayField = new Date().getDay();
-    let highestUser = Users.find().sort({grades : -1}).limit(1);
-    let highestScore = highestUser.grade[new Date().getDay()];
     updateUser(req, res);
 
     res.render(path.join(__dirname, '../views/grade.jade'), { user: req.session.user, gradeFormat: gradeAdjusted,
-                                                                bestGrade: bestScore, highest: highestScore});
-    //res.send(req.session.user);
+                                                                bestGrade: bestScore});
 };
 
-const updateUser = function (req, res) {
+/*Update user information, whether it be grade, user details or other*/
+
+const updateUser = function (req) {
     Users.findOneAndUpdate({username: req.session.user.username}, req.session.user, {new: true}, function(err, user) {});
 };
 
-const getAdmin = function (req, res) {
-    res.render(path.join(__dirname, '../views/admin.jade'), { user: req.session.user });
-};
-
-const getFriends = function (req, res) {
-    let friends;
-    let i = 0;
-    while(req.session.user.friends[i]){
-        friends[i] = Users.findOne({ _id: req.session.user.friends[i] })
-    }
-    res.render(path.join(__dirname, '../views/friends.jade'), { user: req.session.user, friends: friends });
-};
+/* User navigated to MyAccount, display the myAccount page*/
 
 const getAccount = function (req, res) {
     let gradeAdjusted = [];
@@ -252,9 +138,14 @@ const getAccount = function (req, res) {
     }
     res.render(path.join(__dirname, '../views/Account.jade'), { user: req.session.user, gradeFormat : gradeAdjusted });
 };
+
+/* User navigated to recycling directory, display the directory page*/
+
 const getDirectory = function (req, res) {
     res.sendFile(path.join(__dirname, '../views/directory.html'));
 };
+
+/* User entered new information to their account, update it*/
 
 const updateAccount = function(req, res){
     if (req.body.uname){
@@ -267,30 +158,23 @@ const updateAccount = function(req, res){
     getAccount(req, res);
 };
 
+/* User recycled an item, increment their score for the day*/
+
 const handleRecycling = function(req, res) {
     req.session.user.grade[new Date().getDay()] = req.session.user.grade[new Date().getDay()] + 1;
     updateUser(req, res);
     getDirectory(req, res);
 };
 
+/*--------------------Function Exports---------------------------*/
+
 module.exports.createUser = createUser;
 module.exports.findAllItems = findAllItems;
-module.exports.findOneItem = findOneItem;
-module.exports.findByName = findByName;
-module.exports.findAllUsers = findAllUsers;
-module.exports.findOneUser = findOneUser;
-module.exports.findByUserName = findByUserName;
-module.exports.updateUsers = updateUsers;
 module.exports.createUser = createUser;
-module.exports.findByEmail = findByEmail;
-module.exports.findAllGrades = findAllGrades;
-module.exports.findOneGrade = findOneGrade;
 module.exports.handleLogin = handleLogin;
 module.exports.validateUser = validateUser;
 module.exports.logOut = logOut;
 module.exports.getGrades = getGrades;
-module.exports.getFriends = getFriends;
-module.exports.getAdmin = getAdmin;
 module.exports.getAccount = getAccount;
 module.exports.getDirectory = getDirectory;
 module.exports.updateAccount = updateAccount;
